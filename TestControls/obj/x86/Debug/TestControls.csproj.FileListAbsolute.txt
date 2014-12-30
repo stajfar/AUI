@@ -52,3 +52,5 @@ C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\Micr
 C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\KinectControls.pdb
 C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
 C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\Microsoft.Expression.Drawing.xml
+C:\Users\saeed\Documents\GitHub\AUI\TestControls\obj\x86\Debug\TestControls.exe
+C:\Users\saeed\Documents\GitHub\AUI\TestControls\obj\x86\Debug\TestControls.pdb
