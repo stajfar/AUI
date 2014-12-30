@@ -1,0 +1,28 @@
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\bin\x64\Debug\Kinect1.exe.config
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\bin\x64\Debug\Kinect1.exe
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\bin\x64\Debug\Kinect1.pdb
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\Kinect1.csprojResolveAssemblyReference.cache
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\MainWindow.baml
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\MainWindow.g.cs
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\App.g.cs
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\Kinect1_MarkupCompile.cache
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\Kinect1.g.resources
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\Kinect1.Properties.Resources.resources
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\Kinect1.csproj.GenerateResource.Cache
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\Kinect1.exe
+C:\Users\nearffxx\Documents\Visual Studio 2013\Projects\Kinect1\Kinect1\obj\x64\Debug\Kinect1.pdb
+C:\Users\nearffxx\Documents\AUI\Kinect1\bin\x64\Debug\Kinect1.exe.config
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\Kinect1.exe
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\Kinect1.pdb
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\Kinect1.csprojResolveAssemblyReference.cache
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\MainWindow.baml
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\MainWindow.g.cs
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\App.g.cs
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\Kinect1_MarkupCompile.cache
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\Kinect1.g.resources
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\Kinect1.Properties.Resources.resources
+C:\Users\nearffxx\Documents\AUI\Kinect1\obj\x64\Debug\Kinect1.csproj.GenerateResource.Cache
+C:\Users\nearffxx\Documents\AUI\Kinect1\bin\x64\Debug\Kinect1.exe
+C:\Users\nearffxx\Documents\AUI\Kinect1\bin\x64\Debug\Kinect1.pdb
+C:\Users\nearffxx\Documents\AUI\Kinect1\bin\x64\Debug\KinectControls.dll
+C:\Users\nearffxx\Documents\AUI\Kinect1\bin\x64\Debug\KinectControls.pdb

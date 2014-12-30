@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ctrl="clr-namespace:KinectControls;assembly=KinectControls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Kinect1.MainWindow"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Width="640" Height="480">
+    <Canvas Background="White" VerticalAlignment="Top">
+        <MediaElement x:Name="myMediaElement" LoadedBehavior="Manual" Source="D:\JDownloader\Let's Go Pocoyo ! - Cooking with Elly (S03E21)(720p_H.264-AAC).mp4"  Width="640" Height="480"/>
+        <Image x:Name="vid"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="640" Height="480"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click" Canvas.Left="320" Canvas.Top="419"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="Button_Click_1" Canvas.Left="395" Canvas.Top="419"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click_2" Grid.Column="1" Canvas.Left="470" Canvas.Top="419"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click_3" Grid.Column="1" Canvas.Left="545" Canvas.Top="419"/>
+        <ctrl:HoverButton x:Name="btn1" Text="Test"  Opacity="0.3" Height="320" Width="204" Click="HoverButton_Click" Canvas.Top="82" Canvas.Left="10"/>
+        <ctrl:HandCursor x:Name="hand" Canvas.Top="0" Canvas.Left="0"/>
+        <Ellipse x:Name="elips1" Fill="Red" Height="50" Stroke="Black" Canvas.Top="32" Width="50" Canvas.Left="570"/>
+        <ctrl:HoverButton x:Name="btn2" Text="Test"  Opacity="0.3" Height="320" Width="152" Click="HoverButton_Click" Canvas.Top="82" Canvas.Left="219"/>
+        <ctrl:HoverButton x:Name="btn3" Text="Test"  Opacity="0.3" Height="315" Width="206" Click="HoverButton_Click" Canvas.Top="87" Canvas.Left="376"/>
+    </Canvas>
+</Window>

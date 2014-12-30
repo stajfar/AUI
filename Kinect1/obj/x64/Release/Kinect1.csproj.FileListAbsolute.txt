@@ -1,0 +1,8 @@
+C:\Users\nearffxx\documents\visual studio 2013\Projects\Kinect1\Kinect1\bin\x64\Release\Kinect1.exe.config
+C:\Users\nearffxx\documents\visual studio 2013\Projects\Kinect1\Kinect1\obj\x64\Release\MainWindow.baml
+C:\Users\nearffxx\documents\visual studio 2013\Projects\Kinect1\Kinect1\obj\x64\Release\MainWindow.g.cs
+C:\Users\nearffxx\documents\visual studio 2013\Projects\Kinect1\Kinect1\obj\x64\Release\App.g.cs
+C:\Users\nearffxx\documents\visual studio 2013\Projects\Kinect1\Kinect1\obj\x64\Release\Kinect1_MarkupCompile.cache
+C:\Users\nearffxx\documents\visual studio 2013\Projects\Kinect1\Kinect1\obj\x64\Release\Kinect1.g.resources
+C:\Users\nearffxx\documents\visual studio 2013\Projects\Kinect1\Kinect1\obj\x64\Release\Kinect1.Properties.Resources.resources
+C:\Users\nearffxx\documents\visual studio 2013\Projects\Kinect1\Kinect1\obj\x64\Release\Kinect1.csproj.GenerateResource.Cache
