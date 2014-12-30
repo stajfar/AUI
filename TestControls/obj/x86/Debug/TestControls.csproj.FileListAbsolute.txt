@@ -1,0 +1,54 @@
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\bin\Debug\TestControls.exe
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\bin\Debug\TestControls.pdb
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\bin\Debug\KinectControls.dll
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\bin\Debug\KinectControls.pdb
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\MainWindow.baml
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\MainWindow.g.cs
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\App.g.cs
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls_MarkupCompile.cache
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls.g.resources
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls.Properties.Resources.resources
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls.exe
+c:\users\tess\documents\visual studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls.pdb
+C:\Users\Tess\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\Tess\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Tess\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\Tess\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\Microsoft.Expression.Drawing.xml
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls.exe
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls.pdb
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\TestControls.exe
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\TestControls.pdb
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\KinectControls.dll
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\KinectControls.pdb
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\bin\Debug\Microsoft.Expression.Drawing.xml
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\MainWindow.baml
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\MainWindow.g.cs
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\App.g.cs
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls_MarkupCompile.cache
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls.g.resources
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\TestControls.Properties.Resources.resources
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\tferrand\Documents\Visual Studio 2010\Projects\TestControls\TestControls\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\TestControls.exe
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\TestControls.pdb
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\TestControls.csprojResolveAssemblyReference.cache
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\MainWindow.baml
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\MainWindow.g.cs
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\App.g.cs
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\TestControls_MarkupCompile.cache
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\TestControls.g.resources
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\TestControls.Properties.Resources.resources
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\obj\x86\Debug\TestControls.csproj.GenerateResource.Cache
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\TestControls.exe
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\TestControls.pdb
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\KinectControls.dll
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\KinectControls.pdb
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\saeed\Downloads\KinectControls\TestControls\TestControls\bin\Debug\Microsoft.Expression.Drawing.xml
