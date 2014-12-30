@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ctrl="clr-namespace:KinectControls;assembly=KinectControls"
         Title="MainWindow" WindowState="Maximized" Height="700" Width="1000" Loaded="Window_Loaded" Closing="Window_Closing">
-    <Canvas Background="BlanchedAlmond" Height="480" VerticalAlignment="Top" Width="640">
-        <Image x:Name="vid"  HorizontalAlignment="Left" Height="480" VerticalAlignment="Top"  Width="640"/>
-        <ctrl:HoverButton Name="btn1" BackgroundColor="Blue" Text="Test" HoverColor="White" Height="100" Width="200" Click="HoverButton_Click" Canvas.Top="100" Canvas.Left="100"/>
-        <ctrl:HandCursor Name="hand" Canvas.Top="0" Canvas.Left="0"/>
-        <Ellipse x:Name="elips1" Fill="Red" Height="50" Stroke="Black" Canvas.Top="10" Width="50"/>
-    </Canvas>
+        <Canvas Background="Blue" Height="480" VerticalAlignment="Top" Width="640">
+            <Image x:Name="vid"  HorizontalAlignment="Left" Height="480" VerticalAlignment="Top"  Width="640"/>
+            <ctrl:HoverButton Name="btn1" BackgroundColor="Blue" Text="Test" HoverColor="White" Height="100" Width="200" Click="HoverButton_Click" Canvas.Top="100" Canvas.Left="100"/>
+            <ctrl:HandCursor Name="hand" Canvas.Top="0" Canvas.Left="0"/>
+            <Ellipse x:Name="elips1" Fill="Red" Height="50" Stroke="Black" Canvas.Top="10" Width="50"/>
+        </Canvas>
 </Window>
