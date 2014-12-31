@@ -101,7 +101,7 @@ namespace KinectControls
         {
             double maxFillHeight = this.ActualHeight;
 
-            if (!isHovering)
+            if (!isHovering && IsEnabled)
             {
                 isHovering = true;
                 maskAnimation = new DoubleAnimation(Mask.ActualHeight, maxFillHeight, hoverDuration);

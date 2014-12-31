@@ -1,10 +1,13 @@
 0-20		introduction
 20-23		cooking with ellie
-23-75		Allie and cake
-# 75-150		bird reward
+23-1,15		Allie and cake
+# 1,15-2,30		bird reward
 
-150-169		put that in the oven
-#A 169-179
+2,30-2,49		put that in the oven
+#A 2,49-2,59
 #B 179-184
+#C
 ## 184
 
+#on			10-20
+#off 		30-40

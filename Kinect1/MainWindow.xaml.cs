@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.BackgroundRemoval;
+using System.Windows.Threading;
 
 
 namespace Kinect1
@@ -61,7 +62,6 @@ namespace Kinect1
             this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
             this.sensorChooser.KinectChanged += this.SensorChooserOnKinectChanged;
             this.sensorChooser.Start();
-           
         }
         /// <summary>
         /// Finalizes an instance of the MainWindow class.
@@ -99,31 +99,29 @@ namespace Kinect1
                 this.disposed = true;
             }
         }
-
-
-
-
-        private void HoverButton_Click(object sender, EventArgs e)
+        private void activeButton(object sender, EventArgs e)
         {
-
+            btn1.Opacity = 1;
+            btn1.IsEnabled = true;
+            btn2.Opacity = 1;
+            btn2.IsEnabled = true;
+            btn3.Opacity = 1;
+            btn3.IsEnabled = true;
         }
-
+        private void disableButton(object sender, EventArgs e)
+        {
+            btn1.Opacity = 0;
+            btn1.IsEnabled = false;
+            btn2.Opacity = 0;
+            btn2.IsEnabled = false;
+            btn3.Opacity = 0;
+            btn3.IsEnabled = false;
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //sensor = KinectSensor.KinectSensors[0];// kinect = new Runtime();
-           // sensor.ColorStream.Enable();
-           // sensor.DepthStream.Enable();
-           // sensor.SkeletonStream.Enable();
-            //sensor.SkeletonFrameReady += new EventHandler<SkeletonFrameReadyEventArgs>(kinect_SkeletonFrameReady);
-            
-
-           
-
-          
-            // Add an event handler to be called whenever there is new depth frame data
-           // sensor.AllFramesReady += new EventHandler<AllFramesReadyEventArgs>(sensor_AllFramesReady);
-            this.Cursor = Cursors.None;
-            //sensor.Start();
+            this.Cursor = Cursors.Hand;
+            disableButton(sender, e);
+            myMediaElement.startStory1(activeButton);
         }
 
         /// <summary>
@@ -365,26 +363,19 @@ namespace Kinect1
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void chose1(object sender, EventArgs e)
         {
-            myMediaElement.Play();
+            myMediaElement.chosen(1, disableButton, disableButton);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void chose2(object sender, EventArgs e)
         {
-            myMediaElement.Pause();
+            myMediaElement.chosen(2, disableButton, disableButton);
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void chose3(object sender, EventArgs e)
         {
-            myMediaElement.Position = TimeSpan.FromSeconds(11.1);
-            myMediaElement.Play();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            myMediaElement.Position = TimeSpan.FromSeconds(31.1);
-            myMediaElement.Play();
+            myMediaElement.chosen(3, disableButton, disableButton);
         }
     }
 }
