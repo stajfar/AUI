@@ -57,6 +57,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\v1.8\Assemblies\Microsoft.Kinect.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Kinect.Toolkit">
+      <HintPath>..\..\my kinect projects installs\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Kinect.Toolkit.BackgroundRemoval">
+      <HintPath>..\..\my kinect projects installs\BackgroundRemovalBasics-WPF\bin\Debug\Microsoft.Kinect.Toolkit.BackgroundRemoval.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -138,6 +144,26 @@
       <Project>{100f7009-ac20-4c47-95fb-063aeda7a6f8}</Project>
       <Name>KinectControls</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\Redist\amd64\KinectBackgroundRemoval180_64.dll">
+      <Link>KinectBackgroundRemoval180_64.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\Redist\x86\KinectBackgroundRemoval180_32.dll">
+      <Link>KinectBackgroundRemoval180_32.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Background.jpg" />
+    <Resource Include="Images\CheckedHover.png" />
+    <Resource Include="Images\CheckedNormal.png" />
+    <Resource Include="Images\Kinect.ico" />
+    <Resource Include="Images\Logo.png" />
+    <Resource Include="Images\SnapHover.png" />
+    <Resource Include="Images\SnapNormal.png" />
+    <Resource Include="Images\Status.png" />
+    <Resource Include="Images\UncheckedHover.png" />
+    <Resource Include="Images\UncheckedNormal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
