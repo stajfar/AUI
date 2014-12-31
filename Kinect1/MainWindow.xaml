@@ -16,7 +16,7 @@
             </Grid.ColumnDefinitions>       
             <k:KinectSensorChooserUI Grid.Column="1" HorizontalAlignment="Center" Margin="0 0 0 5" VerticalAlignment="Top" Name="sensorChooserUi" />
         </Grid>      
-        <MediaElement x:Name="myMediaElement" LoadedBehavior="Manual" Source="..\..\..\..\Let's Go Pocoyo ! - Cooking with Elly (S03E21)(360p_H.264-AAC).mp4"  Width="640" Height="480"/>
+        <MediaElement x:Name="myMediaElement" LoadedBehavior="Manual" Source="..\..\..\..\pocoyo1.wmv"  Width="640" Height="480"/>
         <Image x:Name="vid"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="48"/>
         <Image Name ="MaskedColor"  />
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click" Canvas.Left="320" Canvas.Top="419"/>
