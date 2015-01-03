@@ -58,7 +58,7 @@
       <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\v1.8\Assemblies\Microsoft.Kinect.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Kinect.Toolkit">
-      <HintPath>..\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll</HintPath>
+      <HintPath>..\BackgroundRemovalBasics-WPF\bin\Debug\Microsoft.Kinect.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Kinect.Toolkit.BackgroundRemoval">
       <HintPath>..\BackgroundRemovalBasics-WPF\bin\Debug\Microsoft.Kinect.Toolkit.BackgroundRemoval.dll</HintPath>

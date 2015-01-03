@@ -224,8 +224,7 @@ namespace Kinect1
         /// <param name="sender">object sending the event</param>
         /// <param name="e">event arguments</param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-           
+        {           
             this.sensorChooser.Stop();
             this.sensorChooser = null;
         }
@@ -240,12 +239,7 @@ namespace Kinect1
                     return;
                 // to remove the background 
                 this.backgroundRemovedColorStream.ProcessColor(colorframe.GetRawPixelData(), colorframe.Timestamp);
-
-                //byte[] pixels = new byte[colorframe.PixelDataLength];
-                //colorframe.CopyPixelDataTo(pixels);
-
-               // int stride = colorframe.Width * 4;
-               // vid.Source = BitmapSource.Create(colorframe.Width, colorframe.Height, 96, 96, PixelFormats.Bgr32, null, pixels, stride);
+               
             }
            
             Getskeleton(e, ref me);
@@ -266,7 +260,7 @@ namespace Kinect1
                 skeletonframeDATA.CopySkeletonDataTo(allskeletons);
                 //to remove background
                 this.backgroundRemovedColorStream.ProcessSkeleton(this.allskeletons, skeletonframeDATA.Timestamp);
-
+                //Select the Tracked skeleton
                 me = (from s in allskeletons where s.TrackingState == SkeletonTrackingState.Tracked select s).FirstOrDefault();
 
             }
@@ -295,14 +289,7 @@ namespace Kinect1
                 ColorImagePoint HipCentercolorPoint = coordinatemapper.MapDepthPointToColorPoint(DepthImageFormat.Resolution640x480Fps30, HipCenterDepthPoint, ColorImageFormat.InfraredResolution640x480Fps30);
 
 
-                //Deneey found
-                // Select the hand closer to the sensor.
-                var activeHand = me.Joints[JointType.HandRight].Position.Z <= me.Joints[JointType.HandLeft].Position.Z ? me.Joints[JointType.HandRight] : me.Joints[JointType.HandLeft];
-
-                // Get the hand's position relatively to the color image.
-                var position = sensor.CoordinateMapper.MapSkeletonPointToColorPoint(
-                                                        activeHand.Position,
-                                                        ColorImageFormat.RgbResolution640x480Fps30);
+                
 
 
 
