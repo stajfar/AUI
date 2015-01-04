@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectControls", "KinectControls\KinectControls.csproj", "{100F7009-AC20-4C47-95FB-063AEDA7A6F8}"
 EndProject
@@ -13,6 +13,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit", "Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj", "{C6F9C31B-6130-4443-A5CC-EF0664552ECD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundRemovalBasics-WPF", "BackgroundRemovalBasics-WPF\BackgroundRemovalBasics-WPF.csproj", "{A1A4EB2E-4163-41B6-8A07-7A28D648816F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino1", "Arduino1\Arduino1.csproj", "{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +76,18 @@ Global
 		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|x64.ActiveCfg = Release|Any CPU
 		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|x86.ActiveCfg = Release|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
