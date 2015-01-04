@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<stories>
+  <story>
+    <ID>1</ID>
+    <InitialMin>2</InitialMin>
+    <InitialSecond>30</InitialSecond>
+    <InitialDurationInSecond>19</InitialDurationInSecond>
+    <VideoUrl>12</VideoUrl>
+    <Sections>
+      <Section>
+        <SectionID>1</SectionID>
+        <KinectButton>
+          <KinecButtonID>1</KinecButtonID>
+          <Position>169</Position>
+          <ForSecond>15</ForSecond>
+        </KinectButton>
+      <KinectButton>
+          <KinecButtonID>2</KinecButtonID>
+          <Position>179</Position>
+          <ForSecond>5</ForSecond>
+        </KinectButton>
+        
+          <KinectButton>
+          <KinecButtonID>3</KinecButtonID>
+          <Position>180</Position>
+          <ForSecond>20</ForSecond>
+        </KinectButton>
+      
+      </Section>
+    </Sections>
+  </story>
+</stories>

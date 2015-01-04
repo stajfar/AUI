@@ -121,7 +121,7 @@ namespace Kinect1
         {
             this.Cursor = Cursors.Hand;
             disableButton(sender, e);
-            myMediaElement.startStory1(activeButton);
+            myMediaElement.startStory(1,activeButton);//StroryID==1
         }
 
         /// <summary>

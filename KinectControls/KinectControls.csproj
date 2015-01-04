@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="StoryController.cs" />
+    <Compile Include="XmlHelper.cs" />
     <Page Include="HoverButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
