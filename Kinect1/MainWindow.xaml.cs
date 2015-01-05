@@ -358,7 +358,7 @@ namespace Kinect1
 
         private void after(object sender, EventArgs e)
         {
-            disableButton(null, null);
+            disableButton();
             myMediaElement.startStory(2,activeButton);
             myMediaElement.chosen(1, disableButton, disableButton);
         }
