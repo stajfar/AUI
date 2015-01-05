@@ -19,7 +19,7 @@ namespace KinectControls
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Tick += new EventHandler(after);
-            dispatcherTimer.Interval = TimeSpan.FromSeconds(s); //In seconds on how much time to play the video and then Pause
+            dispatcherTimer.Interval = Util.TimeSpanFromMinSec(0, s); //In seconds on how much time to play the video and then Pause
             dispatcherTimer.Start();
         }
         private void dispatcherTimer_Tick(object sender, EventArgs e)
@@ -36,18 +36,13 @@ namespace KinectControls
             List<XmlHelper.Story> Liststory = xmlhelper.GetStoryData(StoryID);
             if (Liststory.Count > 0)
             {
-                int initialMin = Liststory[0].time[0].Min;
-                int initialSecond = Liststory[0].time[0].Sec;
-                double initialDurationInSeconds = Liststory[0].duration;
-                this.Position = new TimeSpan(0, initialMin, initialSecond);
-                forSeconds(initialDurationInSeconds, after);
+                double startMin = Liststory[0].time[0].Min;
+                double startSec = Liststory[0].time[0].Sec;
+                double duration = Liststory[0].duration;
+                this.Position = Util.TimeSpanFromMinSec(startMin, startSec);
+                forSeconds(duration, after);
                 this.Play();
-
             }
-
-
-
-
         }
         // react based on the chosen Hover Button
         public void chosen(int p, Action<object, EventArgs> after, Action<object, EventArgs> before)
@@ -56,9 +51,16 @@ namespace KinectControls
 
             XmlHelper xmlhelper = new XmlHelper();
             XmlHelper.KinectButton ButtonData = xmlhelper.GetButtonData(StoryID, 1, p);//SectionID==1
+            List<XmlHelper.Story> Liststory = xmlhelper.GetStoryData(StoryID);
+            if (Liststory.Count > 0)
+            {
+                double startMin = Liststory[0].choice[0].ListKinectButton[p].time[0].Min;
+                double startSec = Liststory[0].choice[0].ListKinectButton[p].time[0].Sec;
+                this.Position = TimeSpan.FromSeconds(ButtonData.Position);
+                forSeconds(ButtonData.duration, before);
+                this.Play();
+            }
 
-            //this.Position = TimeSpan.FromSeconds(ButtonData.Position);
-            forSeconds(ButtonData.duration, before);
 
             /*
             if (p == 1)
@@ -75,7 +77,6 @@ namespace KinectControls
             {
             }
              */
-            this.Play();
         }
     }
 }
