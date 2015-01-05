@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace KinectControls
 {
-    class Util
+    public class Util
     {
         public static TimeSpan timeSpan(XmlHelper.Time time)
         {
@@ -27,32 +28,24 @@ namespace KinectControls
 
         public class Runner
         {
-            private Action action;
-            private TimeSpan time;
-
             public static void start(double time, Action action)
             {
-                new Runner(Util.timeSpan(0, time), action);
+                start(Util.timeSpan(0, time), action);
             }
             public static void start(XmlHelper.Time time, Action action)
             {
-                new Runner(Util.timeSpan(time), action);
+                start(Util.timeSpan(time), action);
             }
             public static void start(TimeSpan time, Action action)
             {
-                new Runner(time, action);
-            }
-            private Runner(TimeSpan time, Action action)
-            {
-                this.action = action;
-                this.time = time;
-                Thread newThread = new Thread(new ThreadStart(run));
-                newThread.Start();
-            }
-            private void run()
-            {
-                Thread.Sleep(time);
-                action.Invoke();
+                DispatcherTimer timer = new DispatcherTimer();
+                timer.Interval = time;
+                timer.Start();
+                timer.Tick += (o, args) =>
+                {
+                    timer.Stop();
+                    action.Invoke();
+                };
             }
         }
     }

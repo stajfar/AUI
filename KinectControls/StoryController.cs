@@ -15,14 +15,20 @@ namespace KinectControls
 
         private int storyID;
 
-        private void arduinoFan()
+        private void arduinoFan(Boolean statusFan)
         {
             ArduinoSerialComm c1 = new ArduinoSerialComm();
             c1.SetComPort();
-            c1.arduinoOut(4, 0);
-            Thread.Sleep(5000);
-            c1.arduinoOut(4, 255);
-            Thread.Sleep(5000);
+            Console.WriteLine(c1.portFound);
+            Thread.Sleep(1000);
+            if (statusFan)
+            {
+                c1.arduinoOut(4, 0);
+            }
+            else
+            {
+                c1.arduinoOut(4, 255);
+            }
         }
 
         //is called to start the story with a given function "after" which will be called when the timer ticks
@@ -35,13 +41,15 @@ namespace KinectControls
             {
                 XmlHelper.Time time = ListStory[0].time[0];
                 this.Position = Util.timeSpan(time);
-                this.Play();
+                Util.Runner.start(0, () => this.Play());
                 double duration = ListStory[0].duration;
-                Util.Runner.start(duration, this.Pause);
+                Util.Runner.start(duration, () => this.Pause());
+        
                 // arduino
                 XmlHelper.Time startFanTime = ListStory[0].arduinoActions[0].ListFan[0].time[0];
-                //XmlHelper.Time startFanTime = ListStory[0].arduinoActions[0].ListFan[0].onStatus;
-                Util.Runner.start(5000, this.Pause);
+                Boolean fanStatus = ListStory[0].arduinoActions[0].ListFan[0].onStatus;
+                Util.Runner.start(0, () => arduinoFan(fanStatus));
+                Util.Runner.start(5, () => arduinoFan(false));
             }
         }
         // react based on the chosen Hover Button
