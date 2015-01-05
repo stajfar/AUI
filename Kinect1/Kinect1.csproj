@@ -166,6 +166,11 @@
       <Link>KinectBackgroundRemoval180_32.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\cacke.jpg" />
+    <Resource Include="Images\chair.jpg" />
+    <Resource Include="Images\cook.jpg" />
+    <Resource Include="Images\fridge.jpg" />
+    <Resource Include="Images\Table.jpg" />
     <Resource Include="Stories.xml">
       <SubType>Designer</SubType>
     </Resource>

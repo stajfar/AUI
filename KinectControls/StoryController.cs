@@ -54,15 +54,15 @@ namespace KinectControls
            
         }
         // react based on the chosen Hover Button
-        public void chosen(int p, Action<object, EventArgs> after, Action<object, EventArgs> before)
+        public void chosen(int p, Action<object, EventArgs> before, Action<object, EventArgs> after)
         {
-            after.Invoke(null, null);
+            before.Invoke(null, null);
 
             XmlHelper xmlhelper = new XmlHelper();
             XmlHelper.KinectButton ButtonData = xmlhelper.GetButtonData(StoryID,1,p);//SectionID==1
 
             this.Position = TimeSpan.FromSeconds(ButtonData.Position);
-            forSeconds(ButtonData.ForSecond, before);
+            forSeconds(ButtonData.ForSecond, after);
 
             /*
             if (p == 1)

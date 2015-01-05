@@ -54,6 +54,7 @@ namespace Kinect1
         /// </summary>
         private int currentlyTrackedSkeletonId;
 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -62,6 +63,9 @@ namespace Kinect1
             this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
             this.sensorChooser.KinectChanged += this.SensorChooserOnKinectChanged;
             this.sensorChooser.Start();
+            btn1.setbackground("../../../Images/cacke.jpg");
+
+            
         }
         /// <summary>
         /// Finalizes an instance of the MainWindow class.
@@ -122,6 +126,9 @@ namespace Kinect1
             this.Cursor = Cursors.Hand;
             disableButton(sender, e);
             myMediaElement.startStory(1,activeButton);//StroryID==1
+
+            string test=btn1.Image;
+            
         }
 
         /// <summary>
@@ -349,6 +356,12 @@ namespace Kinect1
             }
         }
 
+        private void after(object sender, EventArgs e)
+        {
+            disableButton(null, null);
+            myMediaElement.startStory(2,activeButton);
+            myMediaElement.chosen(1, disableButton, disableButton);
+        }
 
         private void chose1(object sender, EventArgs e)
         {
@@ -364,5 +377,9 @@ namespace Kinect1
         {
             myMediaElement.chosen(3, disableButton, disableButton);
         }
+
+       
+
+       
     }
 }

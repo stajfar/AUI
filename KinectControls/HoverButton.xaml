@@ -6,7 +6,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="200">
     <Grid Background="{Binding BackgroundColor}">
+        <Image Name="backgroud_Image" >
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="Images/Hand.png"/>
+            </Image.OpacityMask>
+        </Image>
         <TextBlock Text="{Binding Text}" FontSize="{Binding TextSize}" Foreground="{Binding TextColor}" FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Rectangle Name="Mask" Fill="{Binding HoverColor}" Width="{Binding Width}" Opacity="0.3" RenderTransformOrigin="0,0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
     </Grid>
 </UserControl>

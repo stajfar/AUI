@@ -44,7 +44,7 @@ namespace KinectControls
             set { this.SetValue(BackgroundColorProperty, value); }
         }
         public static readonly DependencyProperty BackgroundColorProperty = DependencyProperty.Register(
-            "BackgroundColor", typeof(Brush), typeof(HoverButton), new PropertyMetadata(Brushes.Red));
+            "BackgroundColor", typeof(Brush), typeof(HoverButton), new PropertyMetadata(Brushes.Transparent));
 
         public Brush HoverColor
         {
@@ -196,6 +196,15 @@ namespace KinectControls
         {
             InitializeComponent();
             this.DataContext = this;
+
+          
+           
+        }
+        public void setbackground(String path)
+        {
+            ImageBrush img = new ImageBrush();
+            img.ImageSource = new BitmapImage(new Uri(path, UriKind.Relative)); //"/Images/cacke.jpg"
+            Background = img;
         }
     }
 }
