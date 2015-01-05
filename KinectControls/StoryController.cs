@@ -14,15 +14,15 @@ namespace KinectControls
     {
         private int StoryID;
         //create a timer dispacher to call the given funtion "after" and also "dispatcherTimer_Tick" Events
-        private void forSeconds(double s, Action<object, EventArgs> after)
+        private void forSeconds(double sec, Action<object, EventArgs> after)
         {
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Tick += new EventHandler(stopDispatcherAndPauseVideo);
             dispatcherTimer.Tick += new EventHandler(after);
-            dispatcherTimer.Interval = Util.TimeSpanFromMinSec(0, s); //In seconds on how much time to play the video and then Pause
+            dispatcherTimer.Interval = Util.TimeSpanFromMinSec(0, sec); //In seconds on how much time to play the video and then Pause
             dispatcherTimer.Start();
         }
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void stopDispatcherAndPauseVideo(object sender, EventArgs e)
         {
             //pause playback and stop the timer
             this.Pause();
@@ -50,33 +50,15 @@ namespace KinectControls
             after.Invoke(null, null);
 
             XmlHelper xmlhelper = new XmlHelper();
-            XmlHelper.KinectButton ButtonData = xmlhelper.GetButtonData(StoryID, 1, p);//SectionID==1
             List<XmlHelper.Story> Liststory = xmlhelper.GetStoryData(StoryID);
             if (Liststory.Count > 0)
             {
                 double startMin = Liststory[0].choice[0].ListKinectButton[p].time[0].Min;
                 double startSec = Liststory[0].choice[0].ListKinectButton[p].time[0].Sec;
-                this.Position = TimeSpan.FromSeconds(ButtonData.Position);
+                this.Position = Util.TimeSpanFromMinSec(startMin, startSec);
                 forSeconds(ButtonData.duration, before);
                 this.Play();
             }
-
-
-            /*
-            if (p == 1)
-            {
-                this.Position = TimeSpan.FromSeconds(169);
-                forSeconds(15, before);
-            }
-            if (p == 2)
-            {
-                this.Position = TimeSpan.FromSeconds(179);
-                forSeconds(5, before);
-            }
-            if (p == 3)
-            {
-            }
-             */
         }
     }
 }
