@@ -103,7 +103,7 @@ namespace Kinect1
                 this.disposed = true;
             }
         }
-        private void activeButton(object sender, EventArgs e)
+        private void activeButton()
         {
             btn1.Opacity = 1;
             btn1.IsEnabled = true;
@@ -112,7 +112,7 @@ namespace Kinect1
             btn3.Opacity = 1;
             btn3.IsEnabled = true;
         }
-        private void disableButton(object sender, EventArgs e)
+        private void disableButton()
         {
             btn1.Opacity = 0;
             btn1.IsEnabled = false;
@@ -124,7 +124,7 @@ namespace Kinect1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Cursor = Cursors.Hand;
-            disableButton(sender, e);
+            disableButton();
             myMediaElement.startStory(1,activeButton);//StroryID==1
 
             string test=btn1.Image;

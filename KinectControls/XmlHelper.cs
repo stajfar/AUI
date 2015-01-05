@@ -13,102 +13,132 @@ namespace KinectControls
         public class Story
         {
             public int StoryID { get; set; }
-            public int InitialMinute { get; set; }
-            public int InitialSecond { get; set; }
-            public int InitialDurationInSecond { get; set; }
             public string VidUrl { get; set; }
-            public List<Sections> ListOfSections = new List<Sections>();
+            public List<Time> time = new List<Time>();
+            public double duration { get; set; }
+            public List<ArduinoActions> arduinoActions = new List<ArduinoActions>();
+            public List<Choice> choice = new List<Choice>();
         }
-        public class Sections
+        public class ArduinoActions
         {
-           public List<Section> ListSection = new List<Section>();
+            public List<Fan> ListFan = new List<Fan>();
+            public List<Led> ListLed = new List<Led>();
+        }
+        public class Time
+        {
+            public double Min { get; set; }
+            public double Sec { get; set; }
+        }
+        public class Fan
+        {
+            public List<Time> time = new List<Time>();
+            public Boolean onStatus { get; set; }
+        }
+        public class Led
+        {
+            public List<Time> time = new List<Time>();
+            public int red { get; set; }
+            public int green { get; set; }
+            public int blue { get; set; }
+        }
+        public class Choice
+        {
+            public List<KinectButton> ListKinectButton = new List<KinectButton>();
         }
 
-        public class Section
-        {
-            public int SectionID{ get; set; }
-           public List<KinectButton> ListKinectButton = new List<KinectButton>();
-        }
         public class KinectButton
         {
             public int BtnID { get; set; }
-            public int Position { get; set; }
-            public int ForSecond { get; set; }
+            public List<Time> time = new List<Time>();
+            public int duration { get; set; }
+            public String imageURL { get; set; }
+            public List<ArduinoActions> arduinoActions = new List<ArduinoActions>();
         }
 
-        public List<Story> GetStoryData(int StoryID)
+        public List<Story> GetStoryData()
         {
-           
             XElement xmlDoc = XElement.Load("../../../Stories.xml");//"C:/Users/saeed/Documents/GitHub/AUI/KinectControls/Stories.xml");
-            var Stories =
-             from story in xmlDoc.Descendants("story")
-             where Convert.ToInt32(story.Element("ID").Value) == StoryID
-             select new Story 
-             {
-                 StoryID = Convert.ToInt32(story.Element("ID").Value),
-                 InitialMinute = Convert.ToInt32(story.Element("InitialMin").Value),
-                 InitialSecond = Convert.ToInt32(story.Element("InitialSecond").Value),
-                 InitialDurationInSecond = Convert.ToInt32(story.Element("InitialDurationInSecond").Value),
-                 VidUrl = story.Element("VideoUrl").Value,
-                 ListOfSections = new List<Sections>(from sections in story.Descendants("Sections")
-                                                     select new Sections
-                                                     {
-                                                         ListSection = new List<Section>(from section in sections.Descendants("Section")
-                                                                                         select new Section
-                                                                                         {
-                                                                                             SectionID = Convert.ToInt32(section.Element("SectionID").Value),
-                                                                                             ListKinectButton = new List<KinectButton>(from kinectButton in section.Descendants("KinectButton")
-                                                                                                                                       select new KinectButton
-                                                                                                                                       {
-                                                                                                                                           BtnID = Convert.ToInt32(kinectButton.Element("KinecButtonID").Value),
-                                                                                                                                           ForSecond = Convert.ToInt32(kinectButton.Element("ForSecond").Value),
-                                                                                                                                           Position = Convert.ToInt32(kinectButton.Element("Position").Value)
-                                                                                                                                       })
-
-                                                                                         })
-
-                                                     })
-
-
-             };
-            return Stories.ToList();
+            List<Story> Stories = getStories(xmlDoc);
+            return Stories;
         }
 
 
-        internal KinectButton GetButtonData(int StoryID,int SectionID,int ButtonID)
+        private List<Story> getStories(XElement root)
         {
-            XElement xmlDoc = XElement.Load("../../../Stories.xml");
-            var Stories =
-             from story in xmlDoc.Descendants("story")
-             where Convert.ToInt32(story.Element("ID").Value) == StoryID
-             select new Story
-             {                 
-                 ListOfSections = new List<Sections>(from sections in story.Descendants("Sections")                                                     
-                                                     select new Sections
-                                                     {
-                                                         ListSection = new List<Section>(from section in sections.Descendants("Section")
-                                                                                         where Convert.ToInt32(section.Element("SectionID").Value) == SectionID
-                                                                                         select new Section
-                                                                                         {
-                                                                                             SectionID = Convert.ToInt32(section.Element("SectionID").Value),
-                                                                                             ListKinectButton = new List<KinectButton>(from kinectButton in section.Descendants("KinectButton")
-                                                                                                                                       where Convert.ToInt32(kinectButton.Element("KinecButtonID").Value) == ButtonID
-                                                                                                                                       select new KinectButton
-                                                                                                                                       {
-                                                                                                                                           BtnID = Convert.ToInt32(kinectButton.Element("KinecButtonID").Value),
-                                                                                                                                           ForSecond = Convert.ToInt32(kinectButton.Element("ForSecond").Value),
-                                                                                                                                           Position = Convert.ToInt32(kinectButton.Element("Position").Value)
-                                                                                                                                       })
+            return new List<Story>(from story in root.Descendants("story")
+                   select new Story
+                   {
+                       StoryID = Convert.ToInt32(story.Element("ID").Value),
+                       VidUrl = story.Element("VideoUrl").Value,
+                       time = getTimes(story),
+                       duration = Convert.ToInt32(story.Element("Duration").Value),
+                       arduinoActions = getArduinoActions(story),
+                       choice = getChoices(story)
+                   });
+        }
 
-                                                                                         })
+        private List<ArduinoActions> getArduinoActions(XElement root)
+        {
+            return new List<ArduinoActions>(from arduinoAction in root.Descendants("ArduinoActions")
+                                            select new ArduinoActions
+                                            {
+                                                ListFan = getFans(arduinoAction),
+                                                ListLed = getLeds(arduinoAction),
 
-                                                     })
+                                            });
+        }
 
+        private List<Fan> getFans(XElement root)
+        {
+            return new List<Fan>(from listFan in root.Descendants("Fan")
+                                 select new Fan
+                                 {
+                                     time = getTimes(listFan),
+                                     onStatus = Convert.ToBoolean(listFan.Element("ON").Value)
+                                 });
+        }
 
-             };
+        private List<Led> getLeds(XElement root)
+        {
+            return new List<Led>(from listLed in root.Descendants("Led")
+                                 select new Led
+                                 {
+                                     time = getTimes(listLed),
+                                     red = Convert.ToInt32(listLed.Element("StatusRed").Value),
+                                     green = Convert.ToInt32(listLed.Element("StatusGreen").Value),
+                                     blue = Convert.ToInt32(listLed.Element("StatusBlue").Value)
+                                 });
+        }
 
+        private List<Choice> getChoices(XElement root)
+        {
+            return new List<Choice>(from choice in root.Descendants("Choice")
+                                    select new Choice
+                                    {
+                                        ListKinectButton = getKinectButtons(choice)
+                                    });
+        }
 
-            return Stories.ToList()[0].ListOfSections[0].ListSection[0].ListKinectButton[0];
+        private List<KinectButton> getKinectButtons(XElement root)
+        {
+            return new List<KinectButton>(from kinectButton in root.Descendants("KinectButton")
+                                          select new KinectButton
+                                          {
+                                              BtnID = Convert.ToInt32(kinectButton.Element("KinecButtonID").Value),
+                                              time = getTimes(kinectButton),
+                                              duration = Convert.ToInt32(kinectButton.Element("Duration").Value),
+                                              imageURL = kinectButton.Element("ImageURL").Value
+                                          });
+        }
+
+        private List<Time> getTimes(XElement root)
+        {
+            return new List<Time>(from time in root.Descendants("Time")
+                                  select new Time
+                                  {
+                                      Min = Convert.ToDouble(time.Element("Min").Value),
+                                      Sec = Convert.ToDouble(time.Element("Sec").Value)
+                                  });
         }
     }
 }
