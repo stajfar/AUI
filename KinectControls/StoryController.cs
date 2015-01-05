@@ -29,29 +29,25 @@ namespace KinectControls
             (sender as DispatcherTimer).Stop();
         }
         //is called to start the story with a given function "after" which will be called when the timer ticks
-        public void startStory(int Storyid,Action<object, EventArgs> after)
+        public void startStory(int Storyid, Action<object, EventArgs> after)
         {
             StoryID = Storyid;
             XmlHelper xmlhelper = new XmlHelper();
             List<XmlHelper.Story> Liststory = xmlhelper.GetStoryData(StoryID);
-            if ( Liststory.Count > 0)
+            if (Liststory.Count > 0)
             {
-                int initialMin=Liststory[0].InitialMinute;
-                int initialSecond=Liststory[0].InitialSecond;
-                int initialDurationInSeconds = Liststory[0].InitialDurationInSecond;
+                int initialMin = Liststory[0].time[0].Min;
+                int initialSecond = Liststory[0].time[0].Sec;
+                double initialDurationInSeconds = Liststory[0].duration;
                 this.Position = new TimeSpan(0, initialMin, initialSecond);
                 forSeconds(initialDurationInSeconds, after);
-
-               
-               
-
                 this.Play();
-  
+
             }
-            
 
 
-           
+
+
         }
         // react based on the chosen Hover Button
         public void chosen(int p, Action<object, EventArgs> after, Action<object, EventArgs> before)
@@ -59,10 +55,10 @@ namespace KinectControls
             after.Invoke(null, null);
 
             XmlHelper xmlhelper = new XmlHelper();
-            XmlHelper.KinectButton ButtonData = xmlhelper.GetButtonData(StoryID,1,p);//SectionID==1
+            XmlHelper.KinectButton ButtonData = xmlhelper.GetButtonData(StoryID, 1, p);//SectionID==1
 
-            this.Position = TimeSpan.FromSeconds(ButtonData.Position);
-            forSeconds(ButtonData.ForSecond, before);
+            //this.Position = TimeSpan.FromSeconds(ButtonData.Position);
+            forSeconds(ButtonData.duration, before);
 
             /*
             if (p == 1)
