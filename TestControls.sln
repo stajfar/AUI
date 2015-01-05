@@ -4,17 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectControls", "KinectControls\KinectControls.csproj", "{100F7009-AC20-4C47-95FB-063AEDA7A6F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9346F47A-D258-499B-81CB-100A8C424540} = {9346F47A-D258-499B-81CB-100A8C424540}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinect1", "Kinect1\Kinect1.csproj", "{BFD4F53B-147A-4B2D-874F-7A81759590FB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{100F7009-AC20-4C47-95FB-063AEDA7A6F8} = {100F7009-AC20-4C47-95FB-063AEDA7A6F8}
+		{C6F9C31B-6130-4443-A5CC-EF0664552ECD} = {C6F9C31B-6130-4443-A5CC-EF0664552ECD}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit", "Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj", "{C6F9C31B-6130-4443-A5CC-EF0664552ECD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundRemovalBasics-WPF", "BackgroundRemovalBasics-WPF\BackgroundRemovalBasics-WPF.csproj", "{A1A4EB2E-4163-41B6-8A07-7A28D648816F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino1", "Arduino1\Arduino1.csproj", "{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino1", "Arduino1\Arduino1.csproj", "{9346F47A-D258-499B-81CB-100A8C424540}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,30 +66,18 @@ Global
 		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Release|x64.ActiveCfg = Release|Any CPU
 		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Release|x86.ActiveCfg = Release|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|x64.ActiveCfg = Release|Any CPU
-		{A1A4EB2E-4163-41B6-8A07-7A28D648816F}.Release|x86.ActiveCfg = Release|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|x64.ActiveCfg = Release|Any CPU
-		{19B7D0D2-108B-45A7-AF98-DF26AEEB91DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Release|x64.ActiveCfg = Release|Any CPU
+		{9346F47A-D258-499B-81CB-100A8C424540}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

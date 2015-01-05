@@ -6,58 +6,57 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Threading;
-
+using Arduino1;
 
 namespace KinectControls
 {
     public class StoryController : MediaElement
     {
-        private int StoryID;
-        //create a timer dispacher to call the given funtion "after" and also "dispatcherTimer_Tick" Events
-        private void forSeconds(double sec, Action<object, EventArgs> after)
+
+        private int storyID;
+
+        private void arduinoFan()
         {
-            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(stopDispatcherAndPauseVideo);
-            dispatcherTimer.Tick += new EventHandler(after);
-            dispatcherTimer.Interval = Util.TimeSpanFromMinSec(0, sec); //In seconds on how much time to play the video and then Pause
-            dispatcherTimer.Start();
+            ArduinoSerialComm c1 = new ArduinoSerialComm();
+            c1.SetComPort();
+            c1.arduinoOut(4, 0);
+            Thread.Sleep(5000);
+            c1.arduinoOut(4, 255);
+            Thread.Sleep(5000);
         }
-        private void stopDispatcherAndPauseVideo(object sender, EventArgs e)
-        {
-            //pause playback and stop the timer
-            this.Pause();
-            (sender as DispatcherTimer).Stop();
-        }
+
         //is called to start the story with a given function "after" which will be called when the timer ticks
-        public void startStory(int Storyid, Action<object, EventArgs> after)
+        public void startStory(int storyID, Action after)
         {
-            StoryID = Storyid;
+            this.storyID = storyID;
             XmlHelper xmlhelper = new XmlHelper();
-            List<XmlHelper.Story> Liststory = xmlhelper.GetStoryData(StoryID);
-            if (Liststory.Count > 0)
+            List<XmlHelper.Story> ListStory = xmlhelper.GetStoryData();
+            if (ListStory.Count > 0)
             {
-                double startMin = Liststory[0].time[0].Min;
-                double startSec = Liststory[0].time[0].Sec;
-                double duration = Liststory[0].duration;
-                this.Position = Util.TimeSpanFromMinSec(startMin, startSec);
-                forSeconds(duration, after);
+                XmlHelper.Time time = ListStory[0].time[0];
+                this.Position = Util.timeSpan(time);
                 this.Play();
+                double duration = ListStory[0].duration;
+                Util.Runner.start(duration, this.Pause);
+                // arduino
+                XmlHelper.Time startFanTime = ListStory[0].arduinoActions[0].ListFan[0].time[0];
+                //XmlHelper.Time startFanTime = ListStory[0].arduinoActions[0].ListFan[0].onStatus;
+                Util.Runner.start(5000, this.Pause);
             }
         }
         // react based on the chosen Hover Button
-        public void chosen(int p, Action<object, EventArgs> after, Action<object, EventArgs> before)
+        public void chosen(int p, Action after, Action before)
         {
-            after.Invoke(null, null);
-
+            after.Invoke();
             XmlHelper xmlhelper = new XmlHelper();
-            List<XmlHelper.Story> Liststory = xmlhelper.GetStoryData(StoryID);
+            List<XmlHelper.Story> Liststory = xmlhelper.GetStoryData();
             if (Liststory.Count > 0)
             {
-                double startMin = Liststory[0].choice[0].ListKinectButton[p].time[0].Min;
-                double startSec = Liststory[0].choice[0].ListKinectButton[p].time[0].Sec;
-                this.Position = Util.TimeSpanFromMinSec(startMin, startSec);
-                forSeconds(ButtonData.duration, before);
+                XmlHelper.Time time = Liststory[0].choice[0].ListKinectButton[p].time[0];
+                this.Position = Util.timeSpan(time);
                 this.Play();
+                double duration = Liststory[0].choice[0].ListKinectButton[p].duration;
+                Util.Runner.start(duration, this.Pause);
             }
         }
     }

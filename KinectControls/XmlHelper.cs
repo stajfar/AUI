@@ -45,6 +45,7 @@ namespace KinectControls
         {
             public List<KinectButton> ListKinectButton = new List<KinectButton>();
         }
+
         public class KinectButton
         {
             public int BtnID { get; set; }
@@ -54,19 +55,17 @@ namespace KinectControls
             public List<ArduinoActions> arduinoActions = new List<ArduinoActions>();
         }
 
-        public List<Story> GetStoryData(int storyID)
+        public List<Story> GetStoryData()
         {
-
             XElement xmlDoc = XElement.Load("../../../Stories.xml");//"C:/Users/saeed/Documents/GitHub/AUI/KinectControls/Stories.xml");
-            var Stories = getStories(xmlDoc, storyID);
-            return Stories.ToList();
+            List<Story> Stories = getStories(xmlDoc);
+            return Stories;
         }
 
 
-        private List<Story> getStories(XElement root, int StoryID)
+        private List<Story> getStories(XElement root)
         {
             return new List<Story>(from story in root.Descendants("story")
-                   where Convert.ToInt32(story.Element("ID").Value) == StoryID
                    select new Story
                    {
                        StoryID = Convert.ToInt32(story.Element("ID").Value),
@@ -88,36 +87,29 @@ namespace KinectControls
 
                                             });
         }
+
         private List<Fan> getFans(XElement root)
         {
             return new List<Fan>(from listFan in root.Descendants("Fan")
                                  select new Fan
                                  {
-                                     time = new List<Time>(from time in listFan.Descendants("Time")
-                                                           select new Time
-                                                           {
-                                                               Min = Convert.ToDouble(time.Element("Min").Value),
-                                                               Sec = Convert.ToDouble(time.Element("Sec").Value)
-                                                           }),
+                                     time = getTimes(listFan),
                                      onStatus = Convert.ToBoolean(listFan.Element("ON").Value)
                                  });
         }
+
         private List<Led> getLeds(XElement root)
         {
             return new List<Led>(from listLed in root.Descendants("Led")
                                  select new Led
                                  {
-                                     time = new List<Time>(from time in listLed.Descendants("Time")
-                                                           select new Time
-                                                           {
-                                                               Min = Convert.ToInt32(time.Element("Min").Value),
-                                                               Sec = Convert.ToInt32(time.Element("Sec").Value)
-                                                           }),
+                                     time = getTimes(listLed),
                                      red = Convert.ToInt32(listLed.Element("StatusRed").Value),
                                      green = Convert.ToInt32(listLed.Element("StatusGreen").Value),
                                      blue = Convert.ToInt32(listLed.Element("StatusBlue").Value)
                                  });
         }
+
         private List<Choice> getChoices(XElement root)
         {
             return new List<Choice>(from choice in root.Descendants("Choice")

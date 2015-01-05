@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <stories>
   <story>
-    <ID>1</ID>
+    <ID>0</ID>
     <VideoUrl>../something.mp4</VideoUrl>
     <Time>
       <Min>2</Min>
@@ -35,7 +35,7 @@
     </ArduinoActions>
     <Choice>
       <KinectButton>
-        <KinecButtonID>1</KinecButtonID>
+        <KinecButtonID>0</KinecButtonID>
         <Time>
           <Min>2</Min>
           <Sec>49</Sec>
@@ -46,7 +46,7 @@
         </ArduinoActions>
       </KinectButton>
       <KinectButton>
-        <KinecButtonID>2</KinecButtonID>
+        <KinecButtonID>1</KinecButtonID>
         <Time>
           <Min>2</Min>
           <Sec>59</Sec>
@@ -57,7 +57,7 @@
         </ArduinoActions>
       </KinectButton>
       <KinectButton>
-        <KinecButtonID>3</KinecButtonID>
+        <KinecButtonID>2</KinecButtonID>
         <Time>
           <Min>3</Min>
           <Sec>0</Sec>
