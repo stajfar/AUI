@@ -19,7 +19,7 @@
       <Fan>
         <Time>
           <Min>2</Min>
-          <Sec>33</Sec>
+          <Sec>35</Sec>
         </Time>
         <ON>False</ON>
       </Fan>
@@ -28,33 +28,198 @@
           <Min>2</Min>
           <Sec>30</Sec>
         </Time>
-        <StatusRed>10</StatusRed>
-        <StatusGreen>20</StatusGreen>
-        <StatusBlue>30</StatusBlue>
+        <StatusRed>255</StatusRed>
+        <StatusGreen>0</StatusGreen>
+        <StatusBlue>0</StatusBlue>
+      </Led>
+      <Led>
+        <Time>
+          <Min>2</Min>
+          <Sec>31</Sec>
+        </Time>
+        <StatusRed>0</StatusRed>
+        <StatusGreen>255</StatusGreen>
+        <StatusBlue>0</StatusBlue>
+      </Led>
+      <Led>
+        <Time>
+          <Min>2</Min>
+          <Sec>32</Sec>
+        </Time>
+        <StatusRed>0</StatusRed>
+        <StatusGreen>0</StatusGreen>
+        <StatusBlue>255</StatusBlue>
+      </Led>
+      <Led>
+        <Time>
+          <Min>2</Min>
+          <Sec>33</Sec>
+        </Time>
+        <StatusRed>0</StatusRed>
+        <StatusGreen>0</StatusGreen>
+        <StatusBlue>255</StatusBlue>
+      </Led>
+      <Led>
+        <Time>
+          <Min>2</Min>
+          <Sec>34</Sec>
+        </Time>
+        <StatusRed>0</StatusRed>
+        <StatusGreen>0</StatusGreen>
+        <StatusBlue>0</StatusBlue>
       </Led>
     </ArduinoActions>
     <Choice>
-      <KinectButton>
-        <KinecButtonID>0</KinecButtonID>
+      <Speech>
         <Time>
           <Min>2</Min>
-          <Sec>49</Sec>
+          <Sec>30</Sec>
         </Time>
-        <Duration>15</Duration>
-        <ImageURL>../../../Images/chair.jpg</ImageURL>
-        <ArduinoActions>
-        </ArduinoActions>
-      </KinectButton>
+        <Text>Help the duck to find the, oven.</Text>
+      </Speech>
       <KinectButton>
-        <KinecButtonID>1</KinecButtonID>
+        <KinecButtonID>0</KinecButtonID>
         <Time>
           <Min>2</Min>
           <Sec>59</Sec>
         </Time>
         <Duration>5</Duration>
-        <ImageURL>../../../Images/cacke.jpg</ImageURL>
+        <ImageURL>../../../Images/cook.jpg</ImageURL>
         <ArduinoActions>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>0</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>255</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>0.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>1</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>255</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>1.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>2</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>255</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>2.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
         </ArduinoActions>
+        <Speech>
+          <Time>
+            <Min>2</Min>
+            <Sec>30</Sec>
+          </Time>
+          <Text>Thank you for finding the, oven.</Text>
+        </Speech>
+      </KinectButton>
+      <KinectButton>
+        <KinecButtonID>1</KinecButtonID>
+        <Time>
+          <Min>2</Min>
+          <Sec>49</Sec>
+        </Time>
+        <Duration>15</Duration>
+        <ImageURL>../../../Images/fridge.jpg</ImageURL>
+        <ArduinoActions>
+          <Led>
+            <Time>
+              <Min>2</Min>
+              <Sec>50</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>2</Min>
+              <Sec>50.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>2</Min>
+              <Sec>51</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>2</Min>
+              <Sec>51.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>2</Min>
+              <Sec>52</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>2</Min>
+              <Sec>52.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+        </ArduinoActions>
+        <Speech>
+          <Time>
+            <Min>2</Min>
+            <Sec>30</Sec>
+          </Time>
+          <Text>Ohhh! No! This is no the oven.</Text>
+        </Speech>
       </KinectButton>
       <KinectButton>
         <KinecButtonID>2</KinecButtonID>
@@ -65,8 +230,107 @@
         <Duration>20</Duration>
         <ImageURL>../../../Images/Table.jpg</ImageURL>
         <ArduinoActions>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>0</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>0.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>1</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>1.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>2</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>3</Min>
+              <Sec>2.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
         </ArduinoActions>
+        <Speech>
+          <Time>
+            <Min>2</Min>
+            <Sec>30</Sec>
+          </Time>
+          <Text>When three changing font settings keep in mind the following information.</Text>
+        </Speech>
       </KinectButton>
+    </Choice>
+  </story>
+  <story>
+    <ID>1</ID>
+    <VideoUrl>../something.mp4</VideoUrl>
+    <Time>
+      <Min>3</Min>
+      <Sec>56</Sec>
+    </Time>
+    <Duration>12</Duration>
+    <ArduinoActions>
+      <Fan>
+        <Time>
+          <Min>3</Min>
+          <Sec>56</Sec>
+        </Time>
+        <ON>True</ON>
+      </Fan>
+      <Led>
+        <Time>
+          <Min>3</Min>
+          <Sec>56</Sec>
+        </Time>
+        <StatusRed>255</StatusRed>
+        <StatusGreen>0</StatusGreen>
+        <StatusBlue>0</StatusBlue>
+      </Led>
+      <Led>
+        <Time>
+          <Min>4</Min>
+          <Sec>0</Sec>
+        </Time>
+        <StatusRed>0</StatusRed>
+        <StatusGreen>0</StatusGreen>
+        <StatusBlue>0</StatusBlue>
+      </Led>
+    </ArduinoActions>
+    <Choice>
     </Choice>
   </story>
 </stories>

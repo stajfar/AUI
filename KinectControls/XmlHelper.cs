@@ -21,8 +21,8 @@ namespace KinectControls
         }
         public class ArduinoActions
         {
-            public List<Fan> ListFan = new List<Fan>();
-            public List<Led> ListLed = new List<Led>();
+            public List<Fan> listFan = new List<Fan>();
+            public List<Led> listLed = new List<Led>();
         }
         public class Time
         {
@@ -43,19 +43,27 @@ namespace KinectControls
         }
         public class Choice
         {
-            public List<KinectButton> ListKinectButton = new List<KinectButton>();
+            public List<KinectButton> listKinectButton = new List<KinectButton>();
+            public List<Speech> listSpeech = new List<Speech>();
+        }
+        
+        public class Speech
+        {
+            public List<Time> time = new List<Time>();
+            public String text { get; set; }
         }
 
         public class KinectButton
         {
-            public int BtnID { get; set; }
+            public int btnID { get; set; }
             public List<Time> time = new List<Time>();
             public int duration { get; set; }
             public String imageURL { get; set; }
             public List<ArduinoActions> arduinoActions = new List<ArduinoActions>();
+            public List<Speech> listSpeech = new List<Speech>();
         }
 
-        public List<Story> GetStoryData()
+        public static List<Story> GetStoryData()
         {
             XElement xmlDoc = XElement.Load("../../../Stories.xml");//"C:/Users/saeed/Documents/GitHub/AUI/KinectControls/Stories.xml");
             List<Story> Stories = getStories(xmlDoc);
@@ -63,7 +71,7 @@ namespace KinectControls
         }
 
 
-        private List<Story> getStories(XElement root)
+        private static List<Story> getStories(XElement root)
         {
             return new List<Story>(from story in root.Descendants("story")
                    select new Story
@@ -77,18 +85,18 @@ namespace KinectControls
                    });
         }
 
-        private List<ArduinoActions> getArduinoActions(XElement root)
+        private static List<ArduinoActions> getArduinoActions(XElement root)
         {
             return new List<ArduinoActions>(from arduinoAction in root.Descendants("ArduinoActions")
                                             select new ArduinoActions
                                             {
-                                                ListFan = getFans(arduinoAction),
-                                                ListLed = getLeds(arduinoAction),
+                                                listFan = getFans(arduinoAction),
+                                                listLed = getLeds(arduinoAction),
 
                                             });
         }
 
-        private List<Fan> getFans(XElement root)
+        private static List<Fan> getFans(XElement root)
         {
             return new List<Fan>(from listFan in root.Descendants("Fan")
                                  select new Fan
@@ -98,7 +106,7 @@ namespace KinectControls
                                  });
         }
 
-        private List<Led> getLeds(XElement root)
+        private static List<Led> getLeds(XElement root)
         {
             return new List<Led>(from listLed in root.Descendants("Led")
                                  select new Led
@@ -110,28 +118,41 @@ namespace KinectControls
                                  });
         }
 
-        private List<Choice> getChoices(XElement root)
+        private static List<Choice> getChoices(XElement root)
         {
             return new List<Choice>(from choice in root.Descendants("Choice")
                                     select new Choice
                                     {
-                                        ListKinectButton = getKinectButtons(choice)
+                                        listKinectButton = getKinectButtons(choice),
+                                        listSpeech = getSpeeches(choice)
                                     });
         }
 
-        private List<KinectButton> getKinectButtons(XElement root)
+        private static List<Speech> getSpeeches(XElement root)
+        {
+            return new List<Speech>(from listSpeech in root.Descendants("Speech")
+                                    select new Speech
+                                    {
+                                        time = getTimes(listSpeech),
+                                        text = listSpeech.Element("Text").Value
+                                    });
+        }
+
+        private static List<KinectButton> getKinectButtons(XElement root)
         {
             return new List<KinectButton>(from kinectButton in root.Descendants("KinectButton")
                                           select new KinectButton
                                           {
-                                              BtnID = Convert.ToInt32(kinectButton.Element("KinecButtonID").Value),
+                                              btnID = Convert.ToInt32(kinectButton.Element("KinecButtonID").Value),
                                               time = getTimes(kinectButton),
                                               duration = Convert.ToInt32(kinectButton.Element("Duration").Value),
-                                              imageURL = kinectButton.Element("ImageURL").Value
+                                              imageURL = kinectButton.Element("ImageURL").Value,
+                                              listSpeech = getSpeeches(kinectButton),
+                                              arduinoActions = getArduinoActions(kinectButton)
                                           });
         }
 
-        private List<Time> getTimes(XElement root)
+        private static List<Time> getTimes(XElement root)
         {
             return new List<Time>(from time in root.Descendants("Time")
                                   select new Time

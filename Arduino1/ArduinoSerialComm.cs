@@ -10,11 +10,19 @@ namespace Arduino1
 {
     public class ArduinoSerialComm
     {
-        private SerialPort currentPort;
+        private ArduinoSerialComm() { }
+        private static SerialPort currentPort;
 
-        public bool portFound { get; private set; }
+        public static bool portFound { get; private set; }
 
-        public void SetComPort()
+        public static void initializeConn()
+        {
+            if (!portFound)
+            {
+                SetComPort();
+            }
+        }
+        private static void SetComPort()
         {
             string[] ports = SerialPort.GetPortNames();
             foreach (string port in ports)
@@ -31,7 +39,7 @@ namespace Arduino1
                 }
             }
         }
-        private bool DetectArduino()
+        private static bool DetectArduino()
         {
             try
             {
@@ -66,7 +74,7 @@ namespace Arduino1
                 return false;
             }
         }
-        public void arduinoReadColor(ref int red, ref int green, ref int blu, ref int clear)
+        public static void arduinoReadColor(ref int red, ref int green, ref int blu, ref int clear)
         {
 
             byte[] buffer = new byte[7];
@@ -99,7 +107,7 @@ namespace Arduino1
             Thread.Sleep(20);
         }
 
-        public void arduinoOut(int port, int value)
+        public static void arduinoOut(int port, int value)
         {
 
             byte[] buffer = new byte[7];
@@ -116,7 +124,7 @@ namespace Arduino1
             Thread.Sleep(20);
         }
 
-        public void arduinoOut(int port, int value1, int value2, int value3)
+        public static void arduinoOut(int port, int value1, int value2, int value3)
         {
 
             byte[] buffer = new byte[7];

@@ -102,35 +102,36 @@ namespace Kinect1
         }
         private void activeButton()
         {
+            btn0.Opacity = 1;
+            btn0.IsEnabled = true;
             btn1.Opacity = 1;
             btn1.IsEnabled = true;
             btn2.Opacity = 1;
             btn2.IsEnabled = true;
-            btn3.Opacity = 1;
-            btn3.IsEnabled = true;
         }
         private void disableButton()
         {
+            btn0.Opacity = 0;
+            btn0.IsEnabled = false;
             btn1.Opacity = 0;
             btn1.IsEnabled = false;
             btn2.Opacity = 0;
             btn2.IsEnabled = false;
-            btn3.Opacity = 0;
-            btn3.IsEnabled = false;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Cursor = Cursors.Hand;
             disableButton();
-            myMediaElement.startStory(1, setButtonsBackground);//StroryID==1
+            myMediaElement.startStory(0, setButtonsBackground);//StroryID==1
+            //myMediaElement.startStory(1, disableButton);//StroryID==1
         }
 
-        private void setButtonsBackground(String btn1URL, String btn2URL, String btn3URL)
+        private void setButtonsBackground(String btn0URL, String btn1URL, String btn2URL)
         {
             activeButton();
+            btn0.setbackground(btn0URL);
             btn1.setbackground(btn1URL);
             btn2.setbackground(btn2URL);
-            btn3.setbackground(btn3URL);
         }
 
         /// <summary>
@@ -301,9 +302,9 @@ namespace Kinect1
                 // hand.SetPosition(handJoint);
                 Canvas.SetLeft(elips1, HipCentercolorPoint.X - elips1.Width / 2);
                 Canvas.SetTop(elips1, 240);
+                btn0.Check(elips1, me.Joints[JointType.HipCenter].Position.Z);
                 btn1.Check(elips1, me.Joints[JointType.HipCenter].Position.Z);
                 btn2.Check(elips1, me.Joints[JointType.HipCenter].Position.Z);
-                btn3.Check(elips1, me.Joints[JointType.HipCenter].Position.Z);
 
             }
 
@@ -355,8 +356,13 @@ namespace Kinect1
         private void after(object sender, EventArgs e)
         {
             disableButton();
-            myMediaElement.startStory(2,activeButton);
+            myMediaElement.startStory(1, disableButton);
             myMediaElement.chosen(1, disableButton, disableButton);
+        }
+
+        private void chose0(object sender, EventArgs e)
+        {
+            myMediaElement.chosen(0, disableButton, disableButton);
         }
 
         private void chose1(object sender, EventArgs e)
@@ -367,11 +373,6 @@ namespace Kinect1
         private void chose2(object sender, EventArgs e)
         {
             myMediaElement.chosen(2, disableButton, disableButton);
-        }
-
-        private void chose3(object sender, EventArgs e)
-        {
-            myMediaElement.chosen(3, disableButton, disableButton);
         }
 
        
