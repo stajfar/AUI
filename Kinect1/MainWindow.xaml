@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <k:KinectSensorChooserUI Grid.Column="1" HorizontalAlignment="Center" Margin="0 0 0 5" VerticalAlignment="Top" Name="sensorChooserUi" />
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" Name="sensorChooserUi" />
         </Grid>
         <ctrl:StoryController x:Name="myMediaElement" LoadedBehavior="Manual" Source="..\..\..\..\pocoyo1.mp4"  Width="640" Height="480"/>
         <Image x:Name="vid"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="48"/>

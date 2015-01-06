@@ -53,6 +53,17 @@ namespace KinectControls
                 //Util.Runner.start(5, () => arduinoFan(false));
             }
         }
+
+        public void startChoose(int storyID, Action after)
+        {
+            this.storyID = storyID;
+            XmlHelper xmlhelper = new XmlHelper();
+            List<XmlHelper.Story> ListStory = xmlhelper.GetStoryData();
+            if (ListStory.Count > 0)
+            {
+
+            }
+        }
         // react based on the chosen Hover Button
         public void chosen(int p, Action after, Action before)
         {
