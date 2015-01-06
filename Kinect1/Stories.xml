@@ -41,7 +41,7 @@
           <Sec>49</Sec>
         </Time>
         <Duration>15</Duration>
-        <ImageURL>../img.png</ImageURL>
+        <ImageURL>../../../Images/chair.jpg</ImageURL>
         <ArduinoActions>
         </ArduinoActions>
       </KinectButton>
@@ -52,7 +52,7 @@
           <Sec>59</Sec>
         </Time>
         <Duration>5</Duration>
-        <ImageURL>../img.png</ImageURL>
+        <ImageURL>../../../Images/cacke.jpg</ImageURL>
         <ArduinoActions>
         </ArduinoActions>
       </KinectButton>
@@ -63,7 +63,7 @@
           <Sec>0</Sec>
         </Time>
         <Duration>20</Duration>
-        <ImageURL>../img.png</ImageURL>
+        <ImageURL>../../../Images/Table.jpg</ImageURL>
         <ArduinoActions>
         </ArduinoActions>
       </KinectButton>

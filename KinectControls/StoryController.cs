@@ -40,11 +40,39 @@ namespace KinectControls
             if (ListStory.Count > 0)
             {
                 XmlHelper.Time time = ListStory[0].time[0];
+                this.Stop();
                 this.Position = Util.timeSpan(time);
-                Util.Runner.start(0, () => this.Play());
+                this.Play();
                 double duration = ListStory[0].duration;
+                duration = 5;
                 Util.Runner.start(duration, () => this.Pause());
-                Util.Runner.start(duration, () => after.Invoke());
+                Util.Runner.start(5, () => after.Invoke());
+
+                //// arduino
+                //XmlHelper.Time startFanTime = ListStory[0].arduinoActions[0].ListFan[0].time[0];
+                //Boolean fanStatus = ListStory[0].arduinoActions[0].ListFan[0].onStatus;
+                //Util.Runner.start(0, () => arduinoFan(fanStatus));
+                //Util.Runner.start(5, () => arduinoFan(false));
+            }
+        }
+        public void startStory(int storyID, Action<String, String, String> after)
+        {
+            this.storyID = storyID;
+            XmlHelper xmlhelper = new XmlHelper();
+            List<XmlHelper.Story> ListStory = xmlhelper.GetStoryData();
+            if (ListStory.Count > 0)
+            {
+                XmlHelper.Time time = ListStory[0].time[0];
+                this.Stop();
+                this.Position = Util.timeSpan(time);
+                this.Play();
+                double duration = ListStory[0].duration;
+                duration = 5;
+                Util.Runner.start(duration, () => this.Pause());
+                String img1 = ListStory[0].choice[0].ListKinectButton[0].imageURL;
+                String img2 = ListStory[0].choice[0].ListKinectButton[1].imageURL;
+                String img3 = ListStory[0].choice[0].ListKinectButton[2].imageURL;
+                Util.Runner.start(5, () => after.Invoke(img1, img2, img3));
 
                 //// arduino
                 //XmlHelper.Time startFanTime = ListStory[0].arduinoActions[0].ListFan[0].time[0];

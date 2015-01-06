@@ -63,8 +63,6 @@ namespace Kinect1
             this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
             this.sensorChooser.KinectChanged += this.SensorChooserOnKinectChanged;
             this.sensorChooser.Start();
-
-            
         }
         /// <summary>
         /// Finalizes an instance of the MainWindow class.
@@ -124,13 +122,15 @@ namespace Kinect1
         {
             this.Cursor = Cursors.Hand;
             disableButton();
-            btn1.setbackground("../../../Images/cacke.jpg");
-            btn2.setbackground("../../../Images/cacke.jpg");
-            btn3.setbackground("../../../Images/cacke.jpg");
-            myMediaElement.startStory(1,activeButton);//StroryID==1
+            myMediaElement.startStory(1, setButtonsBackground);//StroryID==1
+        }
 
-            string test=btn1.Image;
-            
+        private void setButtonsBackground(String btn1URL, String btn2URL, String btn3URL)
+        {
+            activeButton();
+            btn1.setbackground(btn1URL);
+            btn2.setbackground(btn2URL);
+            btn3.setbackground(btn3URL);
         }
 
         /// <summary>
@@ -248,7 +248,6 @@ namespace Kinect1
                     return;
                 // to remove the background 
                 this.backgroundRemovedColorStream.ProcessColor(colorframe.GetRawPixelData(), colorframe.Timestamp);
-               
             }
            
             Getskeleton(e, ref me);
@@ -256,7 +255,6 @@ namespace Kinect1
                 return;
             GetCameraPoint(e, ref me);
             this.ChooseSkeleton();
-
         }
 
 
@@ -296,10 +294,6 @@ namespace Kinect1
                 ColorImagePoint lefthandcolorPoint = coordinatemapper.MapDepthPointToColorPoint(DepthImageFormat.Resolution640x480Fps30, LefthandDepthPoint, ColorImageFormat.InfraredResolution640x480Fps30);
                 ColorImagePoint righthandcolorPoint = coordinatemapper.MapDepthPointToColorPoint(DepthImageFormat.Resolution640x480Fps30, RighthandDepthPoint, ColorImageFormat.InfraredResolution640x480Fps30);
                 ColorImagePoint HipCentercolorPoint = coordinatemapper.MapDepthPointToColorPoint(DepthImageFormat.Resolution640x480Fps30, HipCenterDepthPoint, ColorImageFormat.InfraredResolution640x480Fps30);
-
-
-                
-
 
 
                 Joint handJoint = me.Joints[JointType.HandRight];
