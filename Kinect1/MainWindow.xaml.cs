@@ -63,7 +63,6 @@ namespace Kinect1
             this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
             this.sensorChooser.KinectChanged += this.SensorChooserOnKinectChanged;
             this.sensorChooser.Start();
-            btn1.setbackground("../../../Images/cacke.jpg");
 
             
         }
@@ -125,6 +124,9 @@ namespace Kinect1
         {
             this.Cursor = Cursors.Hand;
             disableButton();
+            btn1.setbackground("../../../Images/cacke.jpg");
+            btn2.setbackground("../../../Images/cacke.jpg");
+            btn3.setbackground("../../../Images/cacke.jpg");
             myMediaElement.startStory(1,activeButton);//StroryID==1
 
             string test=btn1.Image;

@@ -44,12 +44,13 @@ namespace KinectControls
                 Util.Runner.start(0, () => this.Play());
                 double duration = ListStory[0].duration;
                 Util.Runner.start(duration, () => this.Pause());
-        
-                // arduino
-                XmlHelper.Time startFanTime = ListStory[0].arduinoActions[0].ListFan[0].time[0];
-                Boolean fanStatus = ListStory[0].arduinoActions[0].ListFan[0].onStatus;
-                Util.Runner.start(0, () => arduinoFan(fanStatus));
-                Util.Runner.start(5, () => arduinoFan(false));
+                Util.Runner.start(duration, () => after.Invoke());
+
+                //// arduino
+                //XmlHelper.Time startFanTime = ListStory[0].arduinoActions[0].ListFan[0].time[0];
+                //Boolean fanStatus = ListStory[0].arduinoActions[0].ListFan[0].onStatus;
+                //Util.Runner.start(0, () => arduinoFan(fanStatus));
+                //Util.Runner.start(5, () => arduinoFan(false));
             }
         }
         // react based on the chosen Hover Button
