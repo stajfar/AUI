@@ -122,8 +122,8 @@ namespace Kinect1
         {
             this.Cursor = Cursors.Hand;
             disableButton();
-            myMediaElement.startStory(0, setButtonsBackground);//StroryID==1
-            //myMediaElement.startStory(1, disableButton);//StroryID==1
+            //myMediaElement.startStoryButton(0, setButtonsBackground);//StroryID==1
+            myMediaElement.startStoryColor(1, disableButton);//StroryID==1
         }
 
         private void setButtonsBackground(String btn0URL, String btn1URL, String btn2URL)
@@ -375,6 +375,10 @@ namespace Kinect1
             myMediaElement.chosen(2, disableButton, disableButton);
         }
 
+        private void choseColor(object sender, EventArgs e)
+        {
+            myMediaElement.chosenColor(255, 0, 0, disableButton);
+        }
        
 
        
