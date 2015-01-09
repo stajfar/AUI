@@ -26,10 +26,10 @@ namespace KinectControls
             String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
             String img2 = listStory[storyID].choice[0].listKinectButton[1].imageURL;
             String img3 = listStory[storyID].choice[0].listKinectButton[2].imageURL;
-
+            XmlHelper.Time timeBegin = listStory[storyID].time[0];
             XmlHelper.Time time = listStory[storyID].choice[0].listSpeech[0].time[0];
             String text = listStory[storyID].choice[0].listSpeech[0].text;
-            Util.Runner.start(time, () => Util.speak(text));
+            Util.Runner.start(Util.timeSpanDiff(time, timeBegin), () => Util.speak(text));
 
             startStory(storyID, () => after.Invoke(img1, img2, img3));
         }

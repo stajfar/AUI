@@ -18,7 +18,8 @@ namespace KinectControls
             // Configure the audio output.
             synth.SetOutputToWaveFile(@"D:\test\Rate.wav");
             synth.SelectVoice("Microsoft Server Speech Text to Speech Voice (en-US, Helen)");
-            synth.Rate = -2;
+            synth.Rate = 0;
+            synth.Volume = 100;
             PromptBuilder prbuilder = new PromptBuilder();
             // Create a SoundPlayer instance to play the output audio file.
             System.Media.SoundPlayer m_SoundPlayer =
