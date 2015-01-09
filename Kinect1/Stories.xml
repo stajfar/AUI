@@ -330,7 +330,7 @@
         <StatusBlue>0</StatusBlue>
       </Led>
     </ArduinoActions>
-    <Choice>
-    </Choice>
+    <ColorChoice>
+    </ColorChoice>
   </story>
 </stories>

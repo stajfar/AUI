@@ -21,7 +21,20 @@ namespace KinectControls
         }
 
 
-        public void startStory(int storyID, Action<String, String, String> after)
+        public void startStoryButton(int storyID, Action<String, String, String> after)
+        {
+            String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
+            String img2 = listStory[storyID].choice[0].listKinectButton[1].imageURL;
+            String img3 = listStory[storyID].choice[0].listKinectButton[2].imageURL;
+
+            XmlHelper.Time time = listStory[storyID].choice[0].listSpeech[0].time[0];
+            String text = listStory[storyID].choice[0].listSpeech[0].text;
+            Util.Runner.start(time, () => Util.speak(text));
+
+            startStory(storyID, () => after.Invoke(img1, img2, img3));
+        }
+
+        public void startStoryColor(int storyID, Action after)
         {
             String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
             String img2 = listStory[storyID].choice[0].listKinectButton[1].imageURL;
@@ -53,6 +66,20 @@ namespace KinectControls
         {
             after.Invoke();
             XmlHelper.Time time = listStory[0].choice[0].listKinectButton[p].time[0];
+            this.Position = Util.timeSpan(time);
+            this.Play();
+            double duration = listStory[0].choice[0].listKinectButton[p].duration;
+            Util.arduinoActions(listStory[0].choice[0].listKinectButton[p].arduinoActions[0], time);
+            Util.Runner.start(duration, this.Pause);
+
+            String text = listStory[0].choice[0].listKinectButton[p].listSpeech[0].text;
+            Util.Runner.start(duration, () => Util.speak(text));
+        }
+
+        // react based on the chosen Hover Button
+        public void chosenColor(Int32 red, Int32 green, Int32 blue, Action after)
+        {
+            XmlHelper.Time time = listStory[0].choiceColor[0].time[0];
             this.Position = Util.timeSpan(time);
             this.Play();
             double duration = listStory[0].choice[0].listKinectButton[p].duration;
