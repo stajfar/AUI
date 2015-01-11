@@ -122,9 +122,9 @@ namespace Kinect1
         {
             this.Cursor = Cursors.Hand;
             disableButton();
-            //myMediaElement.StartStoryKinect(0, setButtonsBackground);//StroryID==1
+            myMediaElement.StartStoryKinect(0, setButtonsBackground);//StroryID==1
             //myMediaElement.StartStoryArduino(1, setButtonsBackground);//StroryID==1
-            chosen0(null, null);
+            //chosen0(null, null);
             myMediaElement.foo();
         }
 

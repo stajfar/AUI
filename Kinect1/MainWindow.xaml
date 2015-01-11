@@ -34,9 +34,9 @@
                     <Grid.RowDefinitions>                    
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <ctrl:HoverButton Grid.Column="0" x:Name="btn0" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch"  Click="chose0"  />
-                    <ctrl:HoverButton Grid.Column="1" x:Name="btn1" Text="Test" Opacity="1"  HorizontalContentAlignment="Stretch" Click="chose1"  />
-                    <ctrl:HoverButton Grid.Column="2" x:Name="btn2" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch" Click="chose2" />
+                    <ctrl:HoverButton Grid.Column="0" x:Name="btn0" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch"  Click="chosen0"  />
+                    <ctrl:HoverButton Grid.Column="1" x:Name="btn1" Text="Test" Opacity="1"  HorizontalContentAlignment="Stretch" Click="chosen1"  />
+                    <ctrl:HoverButton Grid.Column="2" x:Name="btn2" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch" Click="chosen2" />
                
                 </Grid>
                         
@@ -48,13 +48,11 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Canvas Grid.Row="0" Grid.Column="0" Width="640" Height="480" Background="BlueViolet">
+                    <Canvas Grid.Row="0" Grid.Column="0" Width="1640" Height="480" Background="BlueViolet">
                         <Ellipse x:Name="elips1" Fill="Red" Height="50" Stroke="Black" Width="50" />
                         <Image Name ="MaskedColor" />
                     </Canvas>
-                </Grid>     
-
-
+            </Grid>
         </Grid>
-  
+    </Grid>
 </Window>
