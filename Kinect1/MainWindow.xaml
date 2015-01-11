@@ -6,7 +6,7 @@
         xmlns:k1="clr-namespace:Kinect1;assembly=Kinect1"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Kinect1.MainWindow"
         Loaded="Window_Loaded"
-        Title="MainWindow"   Closing="Window_Closing" SizeChanged="Window_SizeChanged">
+        Title="Pocoyo">
 
 
     <Grid  Background="White" VerticalAlignment="Top"  Margin="0 0 0 0">
@@ -48,7 +48,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Image Name ="MaskedColor" Stretch="Fill" />
+                <Image Name ="maskedColor" Stretch="Fill" />
             </Grid>
         </Grid>
     </Grid>
