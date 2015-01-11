@@ -24,9 +24,7 @@ namespace KinectControls
         {
             this.Pause();
             this.Position = Util.timeSpan(time);
-            this.Play();
-            this.Pause();
-            this.Position = Util.timeSpan(time);
+            Thread.Sleep(5);
             this.Play();
             Util.Runner.Start(duration, this.Pause);
         }
