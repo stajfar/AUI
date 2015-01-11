@@ -129,9 +129,9 @@ namespace KinectControls
             Mask.BeginAnimation(Canvas.HeightProperty, null);
         }
 
-        public bool Check(FrameworkElement cursor, float CursorZdistance)
+        public bool Check(double cursorX, double cursorZdistance)
         {
-            if (IsCursorInButton(cursor) && IsCursorInDistance(CursorZdistance))
+            if (IsCursorInButton(cursorX) && IsCursorInDistance(cursorZdistance))
             {
                 this.StartHovering();
                 return true;
@@ -143,7 +143,7 @@ namespace KinectControls
             }
         }
 
-        private bool IsCursorInDistance(float CursorZdistance)
+        private bool IsCursorInDistance(double CursorZdistance)
         {
             try
             {
@@ -160,29 +160,18 @@ namespace KinectControls
             }
         }
 
-        private bool IsCursorInButton(FrameworkElement cursor)
+        private bool IsCursorInButton(double cursorX)
         {
             try
             {
-                //Cursor midpoint location
-                Point cursorTopLeft = cursor.PointToScreen(new Point());
-                double cursorCenterX = cursorTopLeft.X + (cursor.ActualWidth / 2);
-                double cursorCenterY = cursorTopLeft.Y + (cursor.ActualHeight / 2);
-
-                //Button location
                 Point buttonTopLeft = this.PointToScreen(new Point());
                 double buttonLeft = buttonTopLeft.X;
                 double buttonRight = buttonLeft + this.ActualWidth;
-                //double buttonTop = buttonTopLeft.Y;
-                //double buttonBottom = buttonTop + this.ActualHeight;
 
-                if (cursorCenterX < buttonLeft || cursorCenterX > buttonRight)
+                if (cursorX < buttonLeft || cursorX > buttonRight)
                     return false;
-
-                //if (cursorCenterY < buttonTop || cursorCenterY > buttonBottom)
-                //    return false;
-
-                return true;
+                else
+                    return true;
             }
             catch
             {

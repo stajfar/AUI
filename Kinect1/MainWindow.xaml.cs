@@ -125,7 +125,7 @@ namespace Kinect1
             myMediaElement.StartStoryKinect(0, setButtonsBackground);//StroryID==1
             //myMediaElement.StartStoryArduino(1, setButtonsBackground);//StroryID==1
             //chosen0(null, null);
-            myMediaElement.foo();
+            //myMediaElement.foo();
         }
 
         private void setButtonsBackground(String btn0URL)
@@ -307,12 +307,13 @@ namespace Kinect1
                 Joint handJoint = me.Joints[JointType.HandRight];
 
                 // hand.SetPosition(handJoint);
-                Canvas.SetLeft(elips1, HipCentercolorPoint.X - elips1.Width / 2);
-                Canvas.SetTop(elips1, 240);
-                btn0.Check(elips1, me.Joints[JointType.HipCenter].Position.Z);
-                btn1.Check(elips1, me.Joints[JointType.HipCenter].Position.Z);
-                btn2.Check(elips1, me.Joints[JointType.HipCenter].Position.Z);
-
+                //Canvas.SetLeft(elips1, HipCentercolorPoint.X - elips1.Width / 2);
+                //Canvas.SetTop(elips1, 240);
+                double cursorX = HipCentercolorPoint.X * this.Width / 640;
+                btn0.Check(cursorX, me.Joints[JointType.HipCenter].Position.Z);
+                btn1.Check(cursorX, me.Joints[JointType.HipCenter].Position.Z);
+                btn2.Check(cursorX, me.Joints[JointType.HipCenter].Position.Z);
+                //Console.WriteLine(cursorX);
             }
 
         }
@@ -373,6 +374,11 @@ namespace Kinect1
         private void chosen2(object sender, EventArgs e)
         {
             myMediaElement.Chosen(2, disableButton);
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
         }
     }
 }

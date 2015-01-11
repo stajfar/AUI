@@ -6,52 +6,49 @@
         xmlns:k1="clr-namespace:Kinect1;assembly=Kinect1"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Kinect1.MainWindow"
         Loaded="Window_Loaded"
-        Title="MainWindow"   Closing="Window_Closing">
+        Title="MainWindow"   Closing="Window_Closing" SizeChanged="Window_SizeChanged">
 
-    
-        <Grid  Background="White" VerticalAlignment="Top"  Margin="0 0 0 0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>           
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" >
-                <k:KinectSensorChooserUI  Grid.Row="0" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" Name="sensorChooserUi" />
-                
+
+    <Grid  Background="White" VerticalAlignment="Top"  Margin="0 0 0 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <k:KinectSensorChooserUI  Grid.Row="0" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" Name="sensorChooserUi" />
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <ctrl:StoryController Stretch="Fill" x:Name="myMediaElement" LoadedBehavior="Manual" Source="..\..\..\..\pocoyo1.mp4"  />
+            <Image x:Name="vid"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="48"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ctrl:HoverButton Grid.Column="0" x:Name="btn0" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch"  Click="chosen0"  />
+                <ctrl:HoverButton Grid.Column="1" x:Name="btn1" Text="Test" Opacity="1"  HorizontalContentAlignment="Stretch" Click="chosen1"  />
+                <ctrl:HoverButton Grid.Column="2" x:Name="btn2" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch" Click="chosen2" />
+
             </Grid>
-            
-            <Grid Grid.Row="1" Grid.Column="1" >
-                <ctrl:StoryController Stretch="Fill" x:Name="myMediaElement" LoadedBehavior="Manual" Source="..\..\..\..\pocoyo1.mp4"  />
-                <Image x:Name="vid"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="48"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>                    
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <ctrl:HoverButton Grid.Column="0" x:Name="btn0" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch"  Click="chosen0"  />
-                    <ctrl:HoverButton Grid.Column="1" x:Name="btn1" Text="Test" Opacity="1"  HorizontalContentAlignment="Stretch" Click="chosen1"  />
-                    <ctrl:HoverButton Grid.Column="2" x:Name="btn2" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch" Click="chosen2" />
-               
-                </Grid>
-                        
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
 
-                    <Canvas Grid.Row="0" Grid.Column="0" Width="1640" Height="480" Background="BlueViolet">
-                        <Ellipse x:Name="elips1" Fill="Red" Height="50" Stroke="Black" Width="50" />
-                        <Image Name ="MaskedColor" />
-                    </Canvas>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Image Name ="MaskedColor" Stretch="Fill" />
             </Grid>
         </Grid>
     </Grid>
