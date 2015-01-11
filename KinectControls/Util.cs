@@ -11,6 +11,14 @@ namespace KinectControls
 {
     public class Util
     {
+        public static void speak(XmlHelper.Speech speech, XmlHelper.Time beginTime)
+        {
+            XmlHelper.Time time = speech.time[0];
+            String text = speech.text;
+            Util.Runner.start(Util.timeSpanDiff(time, beginTime), () => Util.speak(text));
+        }
+
+
         public static void speak(String text)
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
@@ -48,6 +56,16 @@ namespace KinectControls
                 Int32 blue = led.blue;
                 Util.Runner.start(Util.timeSpanDiff(startLedTime, beginTime), () => Util.arduinoLed(red, green, blue));
             }
+        }
+
+        public static void arduinoColor(ref double red, ref double green, ref double blue, ref double clear)
+        {
+            ArduinoSerialComm.initializeConn();
+            Console.WriteLine(ArduinoSerialComm.portFound);
+            ArduinoSerialComm.arduinoReadColor(ref red, ref green, ref blue, ref clear);
+            red *= 1.7;
+            green *= 1.1;
+            blue *= 1.5;
         }
 
         public static void arduinoLed(Int32 red, Int32 green, Int32 blue)
@@ -90,7 +108,7 @@ namespace KinectControls
 
         public class Runner
         {
-            public static void start(double time, Action action)
+            public static void Start(double time, Action action)
             {
                 start(Util.timeSpan(0, time), action);
             }

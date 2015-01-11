@@ -70,6 +70,7 @@
       </Led>
     </ArduinoActions>
     <Choice>
+      <Type>Kinect</Type>
       <Speech>
         <Time>
           <Min>2</Min>
@@ -304,33 +305,34 @@
     </Time>
     <Duration>12</Duration>
     <ArduinoActions>
-      <Fan>
-        <Time>
-          <Min>3</Min>
-          <Sec>56</Sec>
-        </Time>
-        <ON>True</ON>
-      </Fan>
-      <Led>
-        <Time>
-          <Min>3</Min>
-          <Sec>56</Sec>
-        </Time>
-        <StatusRed>255</StatusRed>
-        <StatusGreen>0</StatusGreen>
-        <StatusBlue>0</StatusBlue>
-      </Led>
-      <Led>
+    </ArduinoActions>
+    <Choice>
+      <Type>Arduino</Type>
+      <Speech>
         <Time>
           <Min>4</Min>
           <Sec>0</Sec>
         </Time>
-        <StatusRed>0</StatusRed>
-        <StatusGreen>0</StatusGreen>
-        <StatusBlue>0</StatusBlue>
-      </Led>
-    </ArduinoActions>
-    <ColorChoice>
-    </ColorChoice>
+        <Text>Help the duck to find the, oven.</Text>
+      </Speech>
+      <KinectButton>
+        <KinecButtonID>0</KinecButtonID>
+        <Time>
+          <Min>4</Min>
+          <Sec>5</Sec>
+        </Time>
+        <Duration>5</Duration>
+        <ImageURL>../../../Images/cook.jpg</ImageURL>
+        <ArduinoActions>
+        </ArduinoActions>
+        <Speech>
+          <Time>
+            <Min>4</Min>
+            <Sec>10</Sec>
+          </Time>
+          <Text>Thank you for finding the, oven.</Text>
+        </Speech>
+      </KinectButton>
+    </Choice>
   </story>
 </stories>

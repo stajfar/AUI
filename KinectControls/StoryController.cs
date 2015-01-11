@@ -20,74 +20,89 @@ namespace KinectControls
             listStory = XmlHelper.GetStoryData();
         }
 
-
-        public void startStoryButton(int storyID, Action<String, String, String> after)
+        private void Play(XmlHelper.Time time, double duration)
         {
-            String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
-            String img2 = listStory[storyID].choice[0].listKinectButton[1].imageURL;
-            String img3 = listStory[storyID].choice[0].listKinectButton[2].imageURL;
-
-            XmlHelper.Time time = listStory[storyID].choice[0].listSpeech[0].time[0];
-            String text = listStory[storyID].choice[0].listSpeech[0].text;
-            Util.Runner.start(time, () => Util.speak(text));
-
-            startStory(storyID, () => after.Invoke(img1, img2, img3));
-        }
-
-        public void startStoryColor(int storyID, Action after)
-        {
-            String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
-            String img2 = listStory[storyID].choice[0].listKinectButton[1].imageURL;
-            String img3 = listStory[storyID].choice[0].listKinectButton[2].imageURL;
-            XmlHelper.Time timeBegin = listStory[storyID].time[0];
-            XmlHelper.Time time = listStory[storyID].choice[0].listSpeech[0].time[0];
-            String text = listStory[storyID].choice[0].listSpeech[0].text;
-            Util.Runner.start(Util.timeSpanDiff(time, timeBegin), () => Util.speak(text));
-
-            startStory(storyID, () => after.Invoke(img1, img2, img3));
-        }
-
-        public void startStory(int storyID, Action after)
-        {
-            this.storyID = storyID;
-            XmlHelper.Time time = listStory[storyID].time[0];
-            this.Stop();
             this.Position = Util.timeSpan(time);
             this.Play();
-            double duration = listStory[0].duration;
-            Util.Runner.start(duration, () => this.Pause());
-            Util.Runner.start(duration, () => after.Invoke());
+            Util.Runner.Start(duration, this.Pause);
+        }
 
+        public void StartStoryArduino(int storyID, Action<String> after)
+        {
+            //String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
+
+            //StartStory(storyID, () => after.Invoke(img1));
+
+
+            while (true)
+            {
+                double redx = 0;
+                double greenx = 0;
+                double bluex = 0;
+                double clearx = 0;
+                Util.arduinoColor(ref redx, ref greenx, ref bluex, ref clearx);
+                double red = redx / (redx + greenx + bluex);
+                double green = greenx / (redx + greenx + bluex);
+                double blue = bluex / (redx + greenx + bluex);
+                Console.Write("(");
+                Console.Write("{0:F2}", red);
+                Console.Write(",");
+                Console.Write("{0:F2}", green);
+                Console.Write(",");
+                Console.Write("{0:F2}", blue);
+                Console.Write(",");
+                Console.Write("{0:F2}", clearx);
+                Console.WriteLine(")");
+                Thread.Sleep(2000);
+            }
+        }
+
+        public void StartStoryKinect(int storyID, Action<String, String, String> after)
+        {
+            String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
+            String img2 = listStory[storyID].choice[0].listKinectButton[1].imageURL;
+            String img3 = listStory[storyID].choice[0].listKinectButton[2].imageURL;
+
+            StartStory(storyID, () => after.Invoke(img1, img2, img3));
+        }
+
+        private void StartStory(int storyID, Action after)
+        {
+            XmlHelper.Time time = listStory[storyID].time[0];
+
+            this.storyID = storyID;
+            this.Position = Util.timeSpan(time);
+            double duration = listStory[0].duration;
+            this.Play(time, duration);
+
+            Util.Runner.Start(duration, () => after.Invoke());
+
+            Util.speak(listStory[storyID].choice[0].listSpeech[0], time);
             Util.arduinoActions(listStory[storyID].arduinoActions[0], time);
         }
 
         // react based on the chosen Hover Button
-        public void chosen(int p, Action after, Action before)
+        public void ChosenKinect(int p, Action after, Action before)
         {
             after.Invoke();
             XmlHelper.Time time = listStory[0].choice[0].listKinectButton[p].time[0];
-            this.Position = Util.timeSpan(time);
-            this.Play();
             double duration = listStory[0].choice[0].listKinectButton[p].duration;
-            Util.arduinoActions(listStory[0].choice[0].listKinectButton[p].arduinoActions[0], time);
-            Util.Runner.start(duration, this.Pause);
+            this.Play(time, duration);
 
-            String text = listStory[0].choice[0].listKinectButton[p].listSpeech[0].text;
-            Util.Runner.start(duration, () => Util.speak(text));
+            Util.speak(listStory[0].choice[0].listKinectButton[p].listSpeech[0], time);
+            Util.arduinoActions(listStory[0].choice[0].listKinectButton[p].arduinoActions[0], time);
         }
 
         // react based on the chosen Hover Button
-        public void chosenColor(Int32 red, Int32 green, Int32 blue, Action after)
+        public void ChosenArduino(Int32 red, Int32 green, Int32 blue, Action after)
         {
-            XmlHelper.Time time = listStory[0].choiceColor[0].time[0];
-            this.Position = Util.timeSpan(time);
-            this.Play();
-            double duration = listStory[0].choice[0].listKinectButton[p].duration;
-            Util.arduinoActions(listStory[0].choice[0].listKinectButton[p].arduinoActions[0], time);
-            Util.Runner.start(duration, this.Pause);
+            // TODO P != 0
+            XmlHelper.Time time = listStory[0].choice[0].listKinectButton[0].time[0];
+            double duration = listStory[0].choice[0].listKinectButton[0].duration;
+            this.Play(time, duration);
 
-            String text = listStory[0].choice[0].listKinectButton[p].listSpeech[0].text;
-            Util.Runner.start(duration, () => Util.speak(text));
+            Util.speak(listStory[0].choice[0].listKinectButton[0].listSpeech[0], time);
+            Util.arduinoActions(listStory[0].choice[0].listKinectButton[0].arduinoActions[0], time);
         }
     }
 }

@@ -123,9 +123,14 @@ namespace Kinect1
             this.Cursor = Cursors.Hand;
             disableButton();
             //myMediaElement.startStoryButton(0, setButtonsBackground);//StroryID==1
-            myMediaElement.startStoryColor(1, disableButton);//StroryID==1
+            myMediaElement.StartStoryArduino(1, setButtonsBackground);//StroryID==1
         }
 
+        private void setButtonsBackground(String btn0URL)
+        {
+            activeButton();
+            btn0.setbackground(btn0URL);
+        }
         private void setButtonsBackground(String btn0URL, String btn1URL, String btn2URL)
         {
             activeButton();
@@ -353,34 +358,24 @@ namespace Kinect1
             }
         }
 
-        private void after(object sender, EventArgs e)
-        {
-            disableButton();
-            myMediaElement.startStory(1, disableButton);
-            myMediaElement.chosen(1, disableButton, disableButton);
-        }
-
         private void chose0(object sender, EventArgs e)
         {
-            myMediaElement.chosen(0, disableButton, disableButton);
+            myMediaElement.ChosenKinect(0, disableButton, disableButton);
         }
 
         private void chose1(object sender, EventArgs e)
         {
-            myMediaElement.chosen(1, disableButton, disableButton);
+            myMediaElement.ChosenKinect(1, disableButton, disableButton);
         }
 
         private void chose2(object sender, EventArgs e)
         {
-            myMediaElement.chosen(2, disableButton, disableButton);
+            myMediaElement.ChosenKinect(2, disableButton, disableButton);
         }
 
         private void choseColor(object sender, EventArgs e)
         {
-            myMediaElement.chosenColor(255, 0, 0, disableButton);
+            myMediaElement.ChosenArduino(255, 0, 0, disableButton);
         }
-       
-
-       
     }
 }

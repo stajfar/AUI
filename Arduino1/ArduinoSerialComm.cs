@@ -74,7 +74,7 @@ namespace Arduino1
                 return false;
             }
         }
-        public static void arduinoReadColor(ref int red, ref int green, ref int blu, ref int clear)
+        public static void arduinoReadColor(ref double red, ref double green, ref double blu, ref double clear)
         {
 
             byte[] buffer = new byte[7];
@@ -93,13 +93,9 @@ namespace Arduino1
             if (count > 0)
             {
                 red = currentPort.ReadByte();
-                Console.WriteLine(red);
                 green = currentPort.ReadByte();
-                Console.WriteLine(green);
                 blu = currentPort.ReadByte();
-                Console.WriteLine(blu);
                 clear = currentPort.ReadByte();
-                Console.WriteLine(clear);
                 Console.WriteLine();
             }
 
