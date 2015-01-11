@@ -76,7 +76,7 @@
           <Min>2</Min>
           <Sec>49</Sec>
         </Time>
-        <Text>Help the duck to find the, oven.</Text>
+        <Text>Help the Pato to find the, oven.</Text>
       </Speech>
       <KinectButton>
         <KinecButtonID>0</KinecButtonID>
@@ -219,7 +219,7 @@
             <Min>3</Min>
             <Sec>00</Sec>
           </Time>
-          <Text>Ohhh! No! This is no the oven.</Text>
+          <Text>Ohhh! No! This is no the, oven.</Text>
         </Speech>
       </KinectButton>
       <KinectButton>
@@ -288,10 +288,10 @@
         </ArduinoActions>
         <Speech>
           <Time>
-            <Min>2</Min>
-            <Sec>30</Sec>
+            <Min>3</Min>
+            <Sec>0</Sec>
           </Time>
-          <Text>When three changing font settings keep in mind the following information.</Text>
+          <Text>Ohhh! No! This is no the, oven.</Text>
         </Speech>
       </KinectButton>
     </Choice>

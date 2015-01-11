@@ -22,6 +22,10 @@ namespace KinectControls
 
         private void Play(XmlHelper.Time time, double duration)
         {
+            this.Pause();
+            this.Position = Util.timeSpan(time);
+            this.Play();
+            this.Pause();
             this.Position = Util.timeSpan(time);
             this.Play();
             Util.Runner.Start(duration, this.Pause);
@@ -29,10 +33,9 @@ namespace KinectControls
 
         public void StartStoryArduino(int storyID, Action<String> after)
         {
-            //String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
+            String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
 
-            //StartStory(storyID, () => after.Invoke(img1));
-
+            StartStory(storyID, () => { after.Invoke(img1); foo(); });
         }
 
         public void StartStoryKinect(int storyID, Action<String, String, String> after)
@@ -98,14 +101,13 @@ namespace KinectControls
             Console.Write(",");
             Console.Write("{0:F2}", clear);
             Console.WriteLine(")");
-            if ( clear > 80 && red > 0.5)
+            if ( clear > 80 && red > 45)
             {
                 ChosenArduino(red, green, blue, foo);
             } else
             {
                 Util.Runner.Start(0.5, foo);
             }
-
         }
     }
 }

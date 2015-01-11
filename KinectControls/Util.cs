@@ -72,9 +72,9 @@ namespace KinectControls
             r *= 1.7;
             g *= 1.1;
             b *= 1.5;
-            red = r / (r + g + b);
-            green = g / (r + g + b);
-            blue = b / (r + g + b);
+            red = r / (r + g + b) * 100;
+            green = g / (r + g + b) * 100;
+            blue = b / (r + g + b) * 100;
         }
 
         public static void arduinoLed(Int32 red, Int32 green, Int32 blue)
