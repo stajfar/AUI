@@ -144,8 +144,8 @@
         </ArduinoActions>
         <Speech>
           <Time>
-            <Min>2</Min>
-            <Sec>30</Sec>
+            <Min>3</Min>
+            <Sec>00</Sec>
           </Time>
           <Text>Thank you for finding the, oven.</Text>
         </Speech>
@@ -216,8 +216,8 @@
         </ArduinoActions>
         <Speech>
           <Time>
-            <Min>2</Min>
-            <Sec>30</Sec>
+            <Min>3</Min>
+            <Sec>00</Sec>
           </Time>
           <Text>Ohhh! No! This is no the oven.</Text>
         </Speech>
