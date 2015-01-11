@@ -33,9 +33,9 @@
                 <Grid.RowDefinitions>                    
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <ctrl:HoverButton Grid.Column="0" x:Name="btn0" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch"  Click="chose0"  />
-                <ctrl:HoverButton Grid.Column="1" x:Name="btn1" Text="Test" Opacity="1"  HorizontalContentAlignment="Stretch" Click="chose1"  />
-                <ctrl:HoverButton Grid.Column="2" x:Name="btn2" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch" Click="chose2" />
+                <ctrl:HoverButton Grid.Column="0" x:Name="btn0" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch"  Click="chosen0"  />
+                <ctrl:HoverButton Grid.Column="1" x:Name="btn1" Text="Test" Opacity="1"  HorizontalContentAlignment="Stretch" Click="chosen1"  />
+                <ctrl:HoverButton Grid.Column="2" x:Name="btn2" Text="Test" Opacity="1" HorizontalContentAlignment="Stretch" Click="chosen2" />
             </Grid>
                 <Image Name ="MaskedColor"  />
             </Grid>

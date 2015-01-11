@@ -22,18 +22,20 @@ namespace KinectControls
 
         private void Play(XmlHelper.Time time, double duration)
         {
-            this.Pause();
-            this.Position = Util.timeSpan(time);
-            Thread.Sleep(5);
+
+            //Player1.Close();
+            //Player1.Source = uri;
             this.Play();
+            Util.Runner.Start(0.02, () => this.Position = Util.timeSpan(time) );
             Util.Runner.Start(duration, this.Pause);
         }
 
         public void StartStoryArduino(int storyID, Action<String> after)
         {
             String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
-
-            StartStory(storyID, () => { after.Invoke(img1); foo(); });
+            XmlHelper.Choice choise = listStory[storyID].choice[0];
+            //StartStory(storyID, () => { after.Invoke(img1); foo(); });
+            StartStory(storyID, () => Util.arduinoColor(Chosen, choise));
         }
 
         public void StartStoryKinect(int storyID, Action<String, String, String> after)
@@ -51,7 +53,7 @@ namespace KinectControls
 
             this.storyID = storyID;
             this.Position = Util.timeSpan(time);
-            double duration = listStory[0].duration;
+            double duration = listStory[storyID].duration;
             this.Play(time, duration);
 
             Util.Runner.Start(duration, () => after.Invoke());
@@ -61,29 +63,18 @@ namespace KinectControls
         }
 
         // react based on the chosen Hover Button
-        public void ChosenKinect(int p, Action after, Action before)
+        public void Chosen(int p, Action after)
         {
-            after.Invoke();
-            XmlHelper.Time time = listStory[0].choice[0].listKinectButton[p].time[0];
-            double duration = listStory[0].choice[0].listKinectButton[p].duration;
+            XmlHelper.Time time = listStory[storyID].choice[0].listKinectButton[p].time[0];
+            double duration = listStory[storyID].choice[0].listKinectButton[p].duration;
             this.Play(time, duration);
 
-            Util.speak(listStory[0].choice[0].listKinectButton[p].listSpeech[0], time);
-            Util.arduinoActions(listStory[0].choice[0].listKinectButton[p].arduinoActions[0], time);
+            Util.speak(listStory[storyID].choice[0].listKinectButton[p].listSpeech[0], time);
+            Util.arduinoActions(listStory[storyID].choice[0].listKinectButton[p].arduinoActions[0], time);
+            Util.Runner.Start(duration, after);
         }
 
-        // react based on the chosen Hover Button
-        public void ChosenArduino(double red, double green, double blue, Action after)
-        {
-            // TODO P != 0
-            XmlHelper.Time time = listStory[0].choice[0].listKinectButton[0].time[0];
-            double duration = listStory[0].choice[0].listKinectButton[0].duration;
-            this.Play(time, duration);
-
-            Util.speak(listStory[0].choice[0].listKinectButton[0].listSpeech[0], time);
-            Util.arduinoActions(listStory[0].choice[0].listKinectButton[0].arduinoActions[0], time);
-        }
-        public void foo()
+        public void foo() // color debug
         {
             double red = 0;
             double green = 0;
@@ -99,13 +90,7 @@ namespace KinectControls
             Console.Write(",");
             Console.Write("{0:F2}", clear);
             Console.WriteLine(")");
-            if ( clear > 80 && red > 45)
-            {
-                ChosenArduino(red, green, blue, foo);
-            } else
-            {
-                Util.Runner.Start(0.5, foo);
-            }
+            Util.Runner.Start(0.5, foo);
         }
     }
 }

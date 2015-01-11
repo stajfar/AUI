@@ -76,10 +76,11 @@
           <Min>2</Min>
           <Sec>49</Sec>
         </Time>
-        <Text>Help the Pato to find the, oven.</Text>
+        <Text>Help Pato to find the, oven.</Text>
       </Speech>
       <KinectButton>
         <KinecButtonID>0</KinecButtonID>
+        <RightChoice>true</RightChoice>
         <Time>
           <Min>2</Min>
           <Sec>59</Sec>
@@ -152,6 +153,7 @@
       </KinectButton>
       <KinectButton>
         <KinecButtonID>1</KinecButtonID>
+        <RightChoice>false</RightChoice>
         <Time>
           <Min>2</Min>
           <Sec>49</Sec>
@@ -224,6 +226,7 @@
       </KinectButton>
       <KinectButton>
         <KinecButtonID>2</KinecButtonID>
+        <RightChoice>false</RightChoice>
         <Time>
           <Min>3</Min>
           <Sec>0</Sec>
@@ -303,7 +306,7 @@
       <Min>3</Min>
       <Sec>56</Sec>
     </Time>
-    <Duration>12</Duration>
+    <Duration>11</Duration>
     <ArduinoActions>
     </ArduinoActions>
     <Choice>
@@ -311,18 +314,48 @@
       <Speech>
         <Time>
           <Min>4</Min>
-          <Sec>0</Sec>
+          <Sec>7</Sec>
         </Time>
-        <Text>Help the duck to find the, oven.</Text>
+        <Text>Help Pato to find the, green apple.</Text>
       </Speech>
       <KinectButton>
         <KinecButtonID>0</KinecButtonID>
+        <RightChoice>false</RightChoice>
         <Time>
           <Min>4</Min>
-          <Sec>5</Sec>
+          <Sec>7</Sec>
         </Time>
-        <Duration>5</Duration>
-        <ImageURL>../../../Images/cook.jpg</ImageURL>
+        <Duration>0</Duration>
+        <ImageURL>../../../Images/redApple.jpg</ImageURL>
+        <Color>
+          <Red>45</Red>
+          <Green>15</Green>
+          <Blue>15</Blue>
+        </Color>
+        <ArduinoActions>
+        </ArduinoActions>
+        <Speech>
+          <Time>
+            <Min>4</Min>
+            <Sec>7</Sec>
+          </Time>
+          <Text>This is the red apple. Help Pato to find the, green apple.</Text>
+        </Speech>
+      </KinectButton>
+      <KinectButton>
+        <KinecButtonID>1</KinecButtonID>
+        <RightChoice>true</RightChoice>
+        <Time>
+          <Min>4</Min>
+          <Sec>7</Sec>
+        </Time>
+        <Duration>12</Duration>
+        <ImageURL>../../../Images/greenApple.jpg</ImageURL>
+        <Color>
+          <Red>35</Red>
+          <Green>35</Green>
+          <Blue>15</Blue>
+        </Color>
         <ArduinoActions>
         </ArduinoActions>
         <Speech>
@@ -330,7 +363,7 @@
             <Min>4</Min>
             <Sec>10</Sec>
           </Time>
-          <Text>Thank you for finding the, oven.</Text>
+          <Text>Yummy, I love green apples.</Text>
         </Speech>
       </KinectButton>
     </Choice>
