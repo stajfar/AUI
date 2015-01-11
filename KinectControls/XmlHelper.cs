@@ -12,8 +12,8 @@ namespace KinectControls
     {
         public class Story
         {
-            public int StoryID { get; set; }
-            public string VidUrl { get; set; }
+            public int storyID { get; set; }
+            public string vidUrl { get; set; }
             public List<Time> time = new List<Time>();
             public double duration { get; set; }
             public List<ArduinoActions> arduinoActions = new List<ArduinoActions>();
@@ -26,8 +26,8 @@ namespace KinectControls
         }
         public class Time
         {
-            public double Min { get; set; }
-            public double Sec { get; set; }
+            public double min { get; set; }
+            public double sec { get; set; }
         }
         public class Fan
         {
@@ -61,6 +61,15 @@ namespace KinectControls
             public String imageURL { get; set; }
             public List<ArduinoActions> arduinoActions = new List<ArduinoActions>();
             public List<Speech> listSpeech = new List<Speech>();
+            public Boolean rightChoice { get; set; }
+            public List<Color> listColor = new List<Color>();
+        }
+
+        public class Color
+        {
+            public double red { get; set; }
+            public double green { get; set; }
+            public double blue { get; set; } 
         }
 
         public static List<Story> GetStoryData()
@@ -76,8 +85,8 @@ namespace KinectControls
             return new List<Story>(from story in root.Descendants("story")
                    select new Story
                    {
-                       StoryID = Convert.ToInt32(story.Element("ID").Value),
-                       VidUrl = story.Element("VideoUrl").Value,
+                       storyID = Convert.ToInt32(story.Element("ID").Value),
+                       vidUrl = story.Element("VideoUrl").Value,
                        time = getTimes(story),
                        duration = Convert.ToInt32(story.Element("Duration").Value),
                        arduinoActions = getArduinoActions(story),
@@ -92,7 +101,6 @@ namespace KinectControls
                                             {
                                                 listFan = getFans(arduinoAction),
                                                 listLed = getLeds(arduinoAction),
-
                                             });
         }
 
@@ -148,8 +156,21 @@ namespace KinectControls
                                               duration = Convert.ToInt32(kinectButton.Element("Duration").Value),
                                               imageURL = kinectButton.Element("ImageURL").Value,
                                               listSpeech = getSpeeches(kinectButton),
-                                              arduinoActions = getArduinoActions(kinectButton)
+                                              arduinoActions = getArduinoActions(kinectButton),
+                                              rightChoice = Convert.ToBoolean(kinectButton.Element("RightChoice").Value),
+                                              listColor = getColors(kinectButton)
                                           });
+        }
+        
+        private static List<Color> getColors(XElement root)
+        {
+            return new List<Color>(from color in root.Descendants("Color")
+                                   select new Color
+                                   {
+                                       red = Convert.ToDouble(color.Element("Red").Value),
+                                       green = Convert.ToDouble(color.Element("Green").Value),
+                                       blue = Convert.ToDouble(color.Element("Blue").Value)
+                                   });
         }
 
         private static List<Time> getTimes(XElement root)
@@ -157,8 +178,8 @@ namespace KinectControls
             return new List<Time>(from time in root.Descendants("Time")
                                   select new Time
                                   {
-                                      Min = Convert.ToDouble(time.Element("Min").Value),
-                                      Sec = Convert.ToDouble(time.Element("Sec").Value)
+                                      min = Convert.ToDouble(time.Element("Min").Value),
+                                      sec = Convert.ToDouble(time.Element("Sec").Value)
                                   });
         }
     }

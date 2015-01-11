@@ -58,6 +58,29 @@ namespace KinectControls
             }
         }
 
+        public static void arduinoColor(Action<int, Action> Chosen, XmlHelper.Choice choice)
+        {
+            double red = 0;
+            double green = 0;
+            double blue = 0;
+            double clear = 0;
+            Boolean statusOk = false;
+            Util.arduinoColor(ref red, ref green, ref blue, ref clear);
+            List<XmlHelper.KinectButton> listKinectButton = choice.listKinectButton;
+            foreach (XmlHelper.KinectButton kinectButton in listKinectButton)
+            {
+                if (clear > 60 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
+                {
+                    Chosen(kinectButton.btnID, () => { });
+                    statusOk = true;
+                }
+            }
+            if ( statusOk == false )
+            {
+                Util.Runner.Start(1, () => arduinoColor(Chosen, choice));
+            }
+        }
+
         public static void arduinoColor(ref double red, ref double green, ref double blue, ref double clear)
         {
             ArduinoSerialComm.initializeConn();
@@ -100,7 +123,7 @@ namespace KinectControls
 
         public static TimeSpan timeSpan(XmlHelper.Time time)
         {
-            return timeSpan(time.Min, time.Sec);
+            return timeSpan(time.min, time.sec);
         }
         public static TimeSpan timeSpan(double min, double sec)
         {
@@ -108,7 +131,7 @@ namespace KinectControls
         }
         public static TimeSpan timeSpanDiff(XmlHelper.Time aTime, XmlHelper.Time btime)
         {
-            return timeSpanDiff(aTime.Min, aTime.Sec, btime.Min, btime.Sec);
+            return timeSpanDiff(aTime.min, aTime.sec, btime.min, btime.sec);
         }
         public static TimeSpan timeSpanDiff(double aMin, double aSec, double bMin, double bSec)
         {
