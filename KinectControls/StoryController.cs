@@ -33,28 +33,6 @@ namespace KinectControls
 
             //StartStory(storyID, () => after.Invoke(img1));
 
-
-            while (true)
-            {
-                double redx = 0;
-                double greenx = 0;
-                double bluex = 0;
-                double clearx = 0;
-                Util.arduinoColor(ref redx, ref greenx, ref bluex, ref clearx);
-                double red = redx / (redx + greenx + bluex);
-                double green = greenx / (redx + greenx + bluex);
-                double blue = bluex / (redx + greenx + bluex);
-                Console.Write("(");
-                Console.Write("{0:F2}", red);
-                Console.Write(",");
-                Console.Write("{0:F2}", green);
-                Console.Write(",");
-                Console.Write("{0:F2}", blue);
-                Console.Write(",");
-                Console.Write("{0:F2}", clearx);
-                Console.WriteLine(")");
-                Thread.Sleep(2000);
-            }
         }
 
         public void StartStoryKinect(int storyID, Action<String, String, String> after)
@@ -94,7 +72,7 @@ namespace KinectControls
         }
 
         // react based on the chosen Hover Button
-        public void ChosenArduino(Int32 red, Int32 green, Int32 blue, Action after)
+        public void ChosenArduino(double red, double green, double blue, Action after)
         {
             // TODO P != 0
             XmlHelper.Time time = listStory[0].choice[0].listKinectButton[0].time[0];
@@ -103,6 +81,31 @@ namespace KinectControls
 
             Util.speak(listStory[0].choice[0].listKinectButton[0].listSpeech[0], time);
             Util.arduinoActions(listStory[0].choice[0].listKinectButton[0].arduinoActions[0], time);
+        }
+        public void foo()
+        {
+            double red = 0;
+            double green = 0;
+            double blue = 0;
+            double clear = 0;
+            Util.arduinoColor(ref red, ref green, ref blue, ref clear);
+            Console.Write("(");
+            Console.Write("{0:F2}", red);
+            Console.Write(",");
+            Console.Write("{0:F2}", green);
+            Console.Write(",");
+            Console.Write("{0:F2}", blue);
+            Console.Write(",");
+            Console.Write("{0:F2}", clear);
+            Console.WriteLine(")");
+            if ( clear > 80 && red > 0.5)
+            {
+                ChosenArduino(red, green, blue, foo);
+            } else
+            {
+                Util.Runner.Start(0.5, foo);
+            }
+
         }
     }
 }

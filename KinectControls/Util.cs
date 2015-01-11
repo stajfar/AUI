@@ -15,7 +15,7 @@ namespace KinectControls
         {
             XmlHelper.Time time = speech.time[0];
             String text = speech.text;
-            Util.Runner.start(Util.timeSpanDiff(time, beginTime), () => Util.speak(text));
+            Util.Runner.Start(Util.timeSpanDiff(time, beginTime), () => Util.speak(text));
         }
 
 
@@ -44,7 +44,7 @@ namespace KinectControls
             {
                 XmlHelper.Time startFanTime = fan.time[0];
                 Boolean fanStatus = fan.onStatus;
-                Util.Runner.start(Util.timeSpanDiff(startFanTime, beginTime), () => Util.arduinoFan(fanStatus));
+                Util.Runner.Start(Util.timeSpanDiff(startFanTime, beginTime), () => Util.arduinoFan(fanStatus));
             }
 
             List<XmlHelper.Led> listLed = arduinoActions.listLed;
@@ -54,7 +54,7 @@ namespace KinectControls
                 Int32 red = led.red;
                 Int32 green = led.green;
                 Int32 blue = led.blue;
-                Util.Runner.start(Util.timeSpanDiff(startLedTime, beginTime), () => Util.arduinoLed(red, green, blue));
+                Util.Runner.Start(Util.timeSpanDiff(startLedTime, beginTime), () => Util.arduinoLed(red, green, blue));
             }
         }
 
@@ -62,10 +62,19 @@ namespace KinectControls
         {
             ArduinoSerialComm.initializeConn();
             Console.WriteLine(ArduinoSerialComm.portFound);
-            ArduinoSerialComm.arduinoReadColor(ref red, ref green, ref blue, ref clear);
-            red *= 1.7;
-            green *= 1.1;
-            blue *= 1.5;
+            double r = 0;
+            double g = 0;
+            double b = 0;
+            ArduinoSerialComm.arduinoReadColor(ref r, ref g, ref b, ref clear);
+            r += 0;
+            g += 0;
+            b += 0;
+            r *= 1.7;
+            g *= 1.1;
+            b *= 1.5;
+            red = r / (r + g + b);
+            green = g / (r + g + b);
+            blue = b / (r + g + b);
         }
 
         public static void arduinoLed(Int32 red, Int32 green, Int32 blue)
@@ -110,13 +119,13 @@ namespace KinectControls
         {
             public static void Start(double time, Action action)
             {
-                start(Util.timeSpan(0, time), action);
+                Start(Util.timeSpan(0, time), action);
             }
-            public static void start(XmlHelper.Time time, Action action)
+            public static void Start(XmlHelper.Time time, Action action)
             {
-                start(Util.timeSpan(time), action);
+                Start(Util.timeSpan(time), action);
             }
-            public static void start(TimeSpan time, Action action)
+            public static void Start(TimeSpan time, Action action)
             {
                 DispatcherTimer timer = new DispatcherTimer();
                 timer.Interval = time;
