@@ -158,7 +158,7 @@
           <Min>2</Min>
           <Sec>49</Sec>
         </Time>
-        <Duration>15</Duration>
+        <Duration>0</Duration>
         <ImageURL>../../../Images/fridge.jpg</ImageURL>
         <ArduinoActions>
           <Led>
@@ -218,26 +218,26 @@
         </ArduinoActions>
         <Speech>
           <Time>
-            <Min>3</Min>
-            <Sec>00</Sec>
+            <Min>2</Min>
+            <Sec>49</Sec>
           </Time>
-          <Text>Ohhh! No! This is no the, oven.</Text>
+          <Text>No! This is not the, oven.</Text>
         </Speech>
       </KinectButton>
       <KinectButton>
         <KinecButtonID>2</KinecButtonID>
         <RightChoice>false</RightChoice>
         <Time>
-          <Min>3</Min>
-          <Sec>0</Sec>
+          <Min>2</Min>
+          <Sec>49</Sec>
         </Time>
-        <Duration>20</Duration>
+        <Duration>0</Duration>
         <ImageURL>../../../Images/Table.jpg</ImageURL>
         <ArduinoActions>
           <Led>
             <Time>
-              <Min>3</Min>
-              <Sec>0</Sec>
+              <Min>2</Min>
+              <Sec>50</Sec>
             </Time>
             <StatusRed>255</StatusRed>
             <StatusGreen>0</StatusGreen>
@@ -245,8 +245,8 @@
           </Led>
           <Led>
             <Time>
-              <Min>3</Min>
-              <Sec>0.5</Sec>
+              <Min>2</Min>
+              <Sec>50.5</Sec>
             </Time>
             <StatusRed>0</StatusRed>
             <StatusGreen>0</StatusGreen>
@@ -254,8 +254,8 @@
           </Led>
           <Led>
             <Time>
-              <Min>3</Min>
-              <Sec>1</Sec>
+              <Min>2</Min>
+              <Sec>51</Sec>
             </Time>
             <StatusRed>255</StatusRed>
             <StatusGreen>0</StatusGreen>
@@ -263,8 +263,8 @@
           </Led>
           <Led>
             <Time>
-              <Min>3</Min>
-              <Sec>1.5</Sec>
+              <Min>2</Min>
+              <Sec>51.5</Sec>
             </Time>
             <StatusRed>0</StatusRed>
             <StatusGreen>0</StatusGreen>
@@ -272,8 +272,8 @@
           </Led>
           <Led>
             <Time>
-              <Min>3</Min>
-              <Sec>2</Sec>
+              <Min>2</Min>
+              <Sec>52</Sec>
             </Time>
             <StatusRed>255</StatusRed>
             <StatusGreen>0</StatusGreen>
@@ -281,8 +281,8 @@
           </Led>
           <Led>
             <Time>
-              <Min>3</Min>
-              <Sec>2.5</Sec>
+              <Min>2</Min>
+              <Sec>52.5</Sec>
             </Time>
             <StatusRed>0</StatusRed>
             <StatusGreen>0</StatusGreen>
@@ -291,10 +291,10 @@
         </ArduinoActions>
         <Speech>
           <Time>
-            <Min>3</Min>
-            <Sec>0</Sec>
+            <Min>2</Min>
+            <Sec>49</Sec>
           </Time>
-          <Text>Ohhh! No! This is no the, oven.</Text>
+          <Text>No! This is not the, oven.</Text>
         </Speech>
       </KinectButton>
     </Choice>
@@ -333,6 +333,60 @@
           <Blue>15</Blue>
         </Color>
         <ArduinoActions>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>7</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>7.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>8</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>8.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>9</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>9.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
         </ArduinoActions>
         <Speech>
           <Time>
@@ -357,13 +411,145 @@
           <Blue>15</Blue>
         </Color>
         <ArduinoActions>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>7</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>255</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>7.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>8</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>255</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>8.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>9</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>255</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>9.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
         </ArduinoActions>
         <Speech>
           <Time>
             <Min>4</Min>
-            <Sec>10</Sec>
+            <Sec>19</Sec>
           </Time>
           <Text>Yummy, I love green apples.</Text>
+        </Speech>
+      </KinectButton>
+      <KinectButton>
+        <KinecButtonID>2</KinecButtonID>
+        <RightChoice>false</RightChoice>
+        <Time>
+          <Min>4</Min>
+          <Sec>7</Sec>
+        </Time>
+        <Duration>0</Duration>
+        <ImageURL>../../../Images/blueApple.jpg</ImageURL>
+        <Color>
+          <Red>15</Red>
+          <Green>25</Green>
+          <Blue>40</Blue>
+        </Color>
+        <ArduinoActions>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>7</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>7.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>8</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>8.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>9</Sec>
+            </Time>
+            <StatusRed>255</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+          <Led>
+            <Time>
+              <Min>4</Min>
+              <Sec>9.5</Sec>
+            </Time>
+            <StatusRed>0</StatusRed>
+            <StatusGreen>0</StatusGreen>
+            <StatusBlue>0</StatusBlue>
+          </Led>
+        </ArduinoActions>
+        <Speech>
+          <Time>
+            <Min>4</Min>
+            <Sec>7</Sec>
+          </Time>
+          <Text>This is the blue apple. Help Pato to find the, green apple.</Text>
         </Speech>
       </KinectButton>
     </Choice>

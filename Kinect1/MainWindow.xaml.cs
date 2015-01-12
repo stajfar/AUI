@@ -36,10 +36,9 @@ namespace Kinect1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             disableButton();
-            myMediaElement.StartStoryKinect(0, setButtonsBackground);//StroryID==1
+            myMediaElement.StartStoryKinect(0, setButtonsBackground);
             //myMediaElement.StartStoryArduino(1, setButtonsBackground);//StroryID==1
-            //chosen0(null, null);
-            //myMediaElement.foo();
+            myMediaElement.foo();
         }
 
         private void setButtonsBackground(String btn0URL)
@@ -55,19 +54,36 @@ namespace Kinect1
             btn2.setbackground(btn2URL);
         }
 
+        private void story1()
+        {
+            myMediaElement.StartStoryArduino(1, setButtonsBackground);
+        }
+
         private void chosen0(object sender, EventArgs e)
         {
-            myMediaElement.Chosen(0, disableButton);
+            myMediaElement.Chosen(0, story1);
+            if (myMediaElement.rightChoice)
+            {
+                disableButton();
+            }
         }
 
         private void chosen1(object sender, EventArgs e)
         {
-            myMediaElement.Chosen(1, disableButton);
+            myMediaElement.Chosen(1, story1);
+            if (myMediaElement.rightChoice)
+            {
+                disableButton();
+            }
         }
 
         private void chosen2(object sender, EventArgs e)
         {
-            myMediaElement.Chosen(2, disableButton);
+            myMediaElement.Chosen(2, story1);
+            if (myMediaElement.rightChoice)
+            {
+                disableButton();
+            }
         }
     }
 }

@@ -26,8 +26,8 @@ namespace KinectControls
             //Player1.Close();
             //Player1.Source = uri;
             this.Play();
-            Util.Runner.Start(0.02, () => this.Position = Util.timeSpan(time) );
-            Util.Runner.Start(duration, this.Pause);
+            Util.Runner.Start(0.01, () => this.Position = Util.timeSpan(time) );
+            Util.Runner.Start(duration + 0.02, this.Pause);
         }
 
         public void StartStoryArduino(int storyID, Action<String> after)
@@ -57,21 +57,44 @@ namespace KinectControls
             this.Play(time, duration);
 
             Util.Runner.Start(duration, () => after.Invoke());
+            Util.Runner.Start(duration, () => isEnableChoise = true );
+            timeEnable = true;
 
             Util.speak(listStory[storyID].choice[0].listSpeech[0], time);
             Util.arduinoActions(listStory[storyID].arduinoActions[0], time);
         }
 
+        Boolean timeEnable, isEnableChoise;
+        public Boolean rightChoice;
         // react based on the chosen Hover Button
         public void Chosen(int p, Action after)
         {
+            if (timeEnable)
+            {
+                timeEnable = false;
+                Util.Runner.Start(3, () => timeEnable = true );
+            } else 
+            {
+                return;
+            }
+            rightChoice = listStory[storyID].choice[0].listKinectButton[p].rightChoice;
+            if (!isEnableChoise)
+            {
+                return;
+            } else if (rightChoice)
+            {
+                isEnableChoise = false;
+            }
             XmlHelper.Time time = listStory[storyID].choice[0].listKinectButton[p].time[0];
             double duration = listStory[storyID].choice[0].listKinectButton[p].duration;
             this.Play(time, duration);
 
             Util.speak(listStory[storyID].choice[0].listKinectButton[p].listSpeech[0], time);
             Util.arduinoActions(listStory[storyID].choice[0].listKinectButton[p].arduinoActions[0], time);
-            Util.Runner.Start(duration, after);
+            if (rightChoice)
+            {
+                Util.Runner.Start(duration + 5, after);
+            }
         }
 
         public void foo() // color debug

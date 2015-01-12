@@ -69,15 +69,14 @@ namespace KinectControls
             List<XmlHelper.KinectButton> listKinectButton = choice.listKinectButton;
             foreach (XmlHelper.KinectButton kinectButton in listKinectButton)
             {
-                if (clear > 60 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
+                if (clear > 75 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
                 {
-                    Chosen(kinectButton.btnID, () => { });
-                    statusOk = true;
+                    Chosen(kinectButton.btnID, () => { statusOk = true; });
                 }
             }
             if ( statusOk == false )
             {
-                Util.Runner.Start(1, () => arduinoColor(Chosen, choice));
+                Util.Runner.Start(0.1, () => arduinoColor(Chosen, choice));
             }
         }
 
