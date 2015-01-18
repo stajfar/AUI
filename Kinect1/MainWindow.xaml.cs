@@ -8,7 +8,7 @@ namespace Kinect1
 {
     public partial class MainWindow : Window
     {
-        private int SelectedStory;
+        public int SelectedStory;
         private kinect1Window k1win;
         public MainWindow(int SelectedStoryToStart)
         {

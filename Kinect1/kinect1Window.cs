@@ -168,7 +168,10 @@ namespace Kinect1
             this.ChooseSkeleton();
 
             //Update gesture
-            _gesture.Update(me);
+            if (mWindow.SelectedStory == 3)
+            {
+                _gesture.Update(me);
+            }
         }
 
         public void Getskeleton(AllFramesReadyEventArgs e, ref Skeleton me)
