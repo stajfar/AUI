@@ -16,7 +16,15 @@ namespace Kinect1
             InitializeComponent();
             k1win = new kinect1Window(this);
             this.sensorChooserUi.KinectSensorChooser = k1win.sensorChooser;
+            k1win.Gesture_GestureRecognized = GuestureRec;
         }
+
+        public void GuestureRec(object sender, EventArgs e)
+        {
+            //chosen0(sender, e);
+            Console.Write("hello world");
+        }
+        
         private void activeButton()
         {
             btn0.Opacity = 1;

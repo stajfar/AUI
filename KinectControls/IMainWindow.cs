@@ -5,5 +5,6 @@ namespace KinectControls
     {
         void setButtonsBackground(string btn0URL);
         void setButtonsBackground(string btn0URL, string btn1URL, string btn2URL);
+        void GuestureRec(object sender, EventArgs e);
     }
 }

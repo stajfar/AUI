@@ -563,20 +563,7 @@
     </Time>
     <Duration>35</Duration>
     <ArduinoActions>
-      <Fan>
-        <Time>
-          <Min>0</Min>
-          <Sec>40</Sec>
-        </Time>
-        <ON>True</ON>
-      </Fan>
-      <Fan>
-        <Time>
-          <Min>0</Min>
-          <Sec>54</Sec>
-        </Time>
-        <ON>False</ON>
-      </Fan>     
+           
     </ArduinoActions>
     <Choice>
       <Type>KinectGesture</Type>
@@ -586,7 +573,40 @@
           <Sec>35</Sec>
         </Time>
         <Text>Help Pocoyo to open the, door.</Text>
-      </Speech>     
+      </Speech>
+      <KinectButton>
+        <KinecButtonID>0</KinecButtonID>
+        <RightChoice>true</RightChoice>
+        <Time>
+          <Min>0</Min>
+          <Sec>36</Sec>
+        </Time>
+        <Duration>27</Duration>
+        <ImageURL></ImageURL>
+        <ArduinoActions>
+          <Fan>
+            <Time>
+              <Min>0</Min>
+              <Sec>40</Sec>
+            </Time>
+            <ON>True</ON>
+          </Fan>
+          <Fan>
+            <Time>
+              <Min>0</Min>
+              <Sec>54</Sec>
+            </Time>
+            <ON>False</ON>
+          </Fan>
+        </ArduinoActions>
+        <Speech>
+          <Time>
+            <Min>0</Min>
+            <Sec>53</Sec>
+          </Time>
+          <Text>Thank you for oppening the, door</Text>
+        </Speech>
+      </KinectButton>
     </Choice>
   </story>
 </stories>

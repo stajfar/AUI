@@ -150,6 +150,8 @@ namespace Kinect1
             }
         }
 
+
+        public bool Activated = false;
         public void sensor_AllFramesReady(object sender, AllFramesReadyEventArgs e)
         {
             Skeleton me = null;
@@ -168,7 +170,8 @@ namespace Kinect1
             this.ChooseSkeleton();
 
             //Update gesture
-            if (mWindow.SelectedStory == 3)
+            
+            if (Activated)
             {
                 _gesture.Update(me);
             }
@@ -289,12 +292,11 @@ namespace Kinect1
 
 
 
-        static WaveGesture _gesture = new WaveGesture();
+         WaveGesture _gesture = new WaveGesture();
 
-        static void Gesture_GestureRecognized(object sender, EventArgs e)
-        {
-            Console.WriteLine("You just waved!");
-        }
+
+         public System.EventHandler Gesture_GestureRecognized;
+        
 
 
 

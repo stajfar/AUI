@@ -161,5 +161,10 @@ namespace KinectControls
                 };
             }
         }
+
+        public void KinectGusture()
+        {
+            
+        }
     }
 }
