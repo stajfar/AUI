@@ -23,7 +23,7 @@ namespace Kinect1
         {
             k1win = new kinect1Window(this);
             this.sensorChooserUi.KinectSensorChooser = k1win.sensorChooser;
-            //k1win._gesture.GestureRecognized += chosen0;
+            k1win._gesture.GestureRecognized += chosen0;
         }
 
         public void GuestureRec(object sender, EventArgs e)
