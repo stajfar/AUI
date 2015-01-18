@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
+using System.Windows.Threading;
+using KinectControls;
 
 
 namespace Kinect1
@@ -14,6 +17,10 @@ namespace Kinect1
         {
             SelectedStory = SelectedStoryToStart;
             InitializeComponent();
+            Util.Runner.Start(0, startKinect);
+        }
+        public void startKinect()
+        {
             k1win = new kinect1Window(this);
             this.sensorChooserUi.KinectSensorChooser = k1win.sensorChooser;
             //k1win._gesture.GestureRecognized += chosen0;

@@ -27,8 +27,9 @@ namespace KinectControls
             //Player1.Close();
             //Player1.Source = uri;
             this.Play();
-            Util.Runner.Start(0.01, () => this.Position = Util.timeSpan(time) );
-            Util.Runner.Start(duration + 0.02, this.Pause);
+            this.Pause();
+            Util.Runner.Start(0.001, () => { this.Play(); this.Position = Util.timeSpan(time); });
+            Util.Runner.Start(duration + 0.002, this.Pause);
         }
 
         public void StartStory(int storyID, IMainWindow imw)
