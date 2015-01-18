@@ -199,6 +199,9 @@
       <Link>KinectBackgroundRemoval180_32.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Assistant-cake.jpg" />
+    <Resource Include="Images\Assistant-door.jpg" />
+    <Resource Include="Images\Assistant-order_apple.jpg" />
     <Resource Include="Images\door_story.jpg" />
     <Resource Include="Images\cake.jpg" />
     <Resource Include="Images\order_apple.jpg" />
