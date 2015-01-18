@@ -45,6 +45,7 @@ namespace KinectControls
         {
             public List<KinectButton> listKinectButton = new List<KinectButton>();
             public List<Speech> listSpeech = new List<Speech>();
+            public String type { get; set; }
         }
         
         public class Speech
@@ -132,7 +133,8 @@ namespace KinectControls
                                     select new Choice
                                     {
                                         listKinectButton = getKinectButtons(choice),
-                                        listSpeech = getSpeeches(choice)
+                                        listSpeech = getSpeeches(choice),
+                                        type = choice.Element("Type").Value
                                     });
         }
 

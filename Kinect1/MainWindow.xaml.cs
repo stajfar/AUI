@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace Kinect1
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, KinectControls.IMainWindow
     {
         public int SelectedStory;
         private kinect1Window k1win;
@@ -38,17 +38,16 @@ namespace Kinect1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             disableButton();
-            myMediaElement.StartStoryKinect(SelectedStory, setButtonsBackground);
-            //myMediaElement.StartStoryArduino(1, setButtonsBackground);//StroryID==1
+            myMediaElement.StartStory(SelectedStory, this);
             //myMediaElement.foo();
         }
 
-        private void setButtonsBackground(String btn0URL)
+        public void setButtonsBackground(String btn0URL)
         {
             activeButton();
             btn0.setbackground(btn0URL);
         }
-        private void setButtonsBackground(String btn0URL, String btn1URL, String btn2URL)
+        public void setButtonsBackground(String btn0URL, String btn1URL, String btn2URL)
         {
             activeButton();
             btn0.setbackground(btn0URL);
@@ -56,14 +55,9 @@ namespace Kinect1
             btn2.setbackground(btn2URL);
         }
 
-        private void story1()
-        {
-            myMediaElement.StartStoryArduino(1, setButtonsBackground);
-        }
-
         private void chosen0(object sender, EventArgs e)
         {
-            myMediaElement.Chosen(0, story1);
+            myMediaElement.Chosen(0, () => { });
             if (myMediaElement.rightChoice)
             {
                 disableButton();
@@ -72,7 +66,7 @@ namespace Kinect1
 
         private void chosen1(object sender, EventArgs e)
         {
-            myMediaElement.Chosen(1, story1);
+            myMediaElement.Chosen(1, () => { });
             if (myMediaElement.rightChoice)
             {
                 disableButton();
@@ -81,7 +75,7 @@ namespace Kinect1
 
         private void chosen2(object sender, EventArgs e)
         {
-            myMediaElement.Chosen(2, story1);
+            myMediaElement.Chosen(2, () => { });
             if (myMediaElement.rightChoice)
             {
                 disableButton();

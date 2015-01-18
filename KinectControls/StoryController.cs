@@ -14,6 +14,7 @@ namespace KinectControls
 
         private int storyID;
         private List<XmlHelper.Story> listStory;
+        private IMainWindow imw;
 
         public StoryController()
         {
@@ -30,21 +31,25 @@ namespace KinectControls
             Util.Runner.Start(duration + 0.02, this.Pause);
         }
 
-        public void StartStoryArduino(int storyID, Action<String> after)
+        public void StartStory(int storyID, IMainWindow imw)
         {
-            String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
+            this.imw = imw;
             XmlHelper.Choice choise = listStory[storyID].choice[0];
-            //StartStory(storyID, () => { after.Invoke(img1); foo(); });
-            StartStory(storyID, () => Util.arduinoColor(Chosen, choise));
-        }
-
-        public void StartStoryKinect(int storyID, Action<String, String, String> after)
-        {
-            String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
-            String img2 = listStory[storyID].choice[0].listKinectButton[1].imageURL;
-            String img3 = listStory[storyID].choice[0].listKinectButton[2].imageURL;
-
-            StartStory(storyID, () => after.Invoke(img1, img2, img3));
+            switch (choise.type)
+            {
+                case "KinectButton":
+                    String img1 = listStory[storyID].choice[0].listKinectButton[0].imageURL;
+                    String img2 = listStory[storyID].choice[0].listKinectButton[1].imageURL;
+                    String img3 = listStory[storyID].choice[0].listKinectButton[2].imageURL;
+                    StartStory(storyID, () => imw.setButtonsBackground(img1, img2, img3));
+                    break;
+                case "Arduino":
+                    StartStory(storyID, () => Util.arduinoColor(Chosen, choise));
+                    break;
+                case "KinectGesture":
+                    StartStory(storyID, () => { });
+                    break;
+            }
         }
 
         private void StartStory(int storyID, Action after)
@@ -93,7 +98,7 @@ namespace KinectControls
            // Util.arduinoActions(listStory[storyID].choice[0].listKinectButton[p].arduinoActions[0], time);
             if (rightChoice)
             {
-                Util.Runner.Start(duration + 5, after);
+                //Util.Runner.Start(duration + 5, after);
             }
         }
 
