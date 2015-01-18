@@ -96,6 +96,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StorySelection.xaml.cs">
+      <DependentUpon>StorySelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaveGesture.cs" />
+    <Compile Include="WaveGestureSegments.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,6 +114,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StorySelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -189,6 +198,11 @@
       <Link>KinectBackgroundRemoval180_32.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\door_story.jpg" />
+    <Resource Include="Images\cake.jpg" />
+    <Resource Include="Images\order_apple.jpg" />
+    <Resource Include="order apple.png" />
+    <Resource Include="Images\POCO-background.jpg" />
     <Resource Include="Images\cacke.jpg" />
     <Resource Include="Images\chair.jpg" />
     <Resource Include="Images\cook.jpg" />

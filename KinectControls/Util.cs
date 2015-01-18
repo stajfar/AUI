@@ -24,14 +24,14 @@ namespace KinectControls
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.GetInstalledVoices();
             // Configure the audio output.
-            synth.SetOutputToWaveFile(@"D:\test\Rate.wav");
+            synth.SetOutputToWaveFile(@"C:\test\Rate.wav");
             synth.SelectVoice("Microsoft Server Speech Text to Speech Voice (en-US, Helen)");
             synth.Rate = 0;
             synth.Volume = 100;
             PromptBuilder prbuilder = new PromptBuilder();
             // Create a SoundPlayer instance to play the output audio file.
             System.Media.SoundPlayer m_SoundPlayer =
-              new System.Media.SoundPlayer(@"D:\test\Rate.wav");
+              new System.Media.SoundPlayer(@"C:\test\Rate.wav");
             synth.Speak(text);
             m_SoundPlayer.Play();
             synth.Dispose();
@@ -65,12 +65,14 @@ namespace KinectControls
             double blue = 0;
             double clear = 0;
             Boolean statusOk = false;
-            Util.arduinoColor(ref red, ref green, ref blue, ref clear);
+            //Util.arduinoColor(ref red, ref green, ref blue, ref clear);
             List<XmlHelper.KinectButton> listKinectButton = choice.listKinectButton;
             foreach (XmlHelper.KinectButton kinectButton in listKinectButton)
             {
-                if (clear > 75 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
+               // if (clear > 75 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
+                if(true)
                 {
+                    kinectButton.btnID = 1;
                     Chosen(kinectButton.btnID, () => { statusOk = true; });
                 }
             }

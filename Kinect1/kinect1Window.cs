@@ -138,6 +138,8 @@ namespace Kinect1
 
                     // Add an event handler to be called whenever there is new depth frame data
                     args.NewSensor.AllFramesReady += this.sensor_AllFramesReady;
+                    //Add an event handler to be called whenever the guesture is recognized
+                    _gesture.GestureRecognized += Gesture_GestureRecognized;
 
                 }
                 catch (InvalidOperationException)
@@ -164,6 +166,9 @@ namespace Kinect1
                 return;
             GetCameraPoint(e, ref me);
             this.ChooseSkeleton();
+
+            //Update gesture
+            _gesture.Update(me);
         }
 
         public void Getskeleton(AllFramesReadyEventArgs e, ref Skeleton me)
@@ -278,5 +283,19 @@ namespace Kinect1
                 }
             }
         }
+
+
+
+        static WaveGesture _gesture = new WaveGesture();
+
+        static void Gesture_GestureRecognized(object sender, EventArgs e)
+        {
+            Console.WriteLine("You just waved!");
+        }
+
+
+
+
+
     }
 }

@@ -8,9 +8,11 @@ namespace Kinect1
 {
     public partial class MainWindow : Window
     {
+        private int SelectedStory;
         private kinect1Window k1win;
-        public MainWindow()
+        public MainWindow(int SelectedStoryToStart)
         {
+            SelectedStory = SelectedStoryToStart;
             InitializeComponent();
             k1win = new kinect1Window(this);
             this.sensorChooserUi.KinectSensorChooser = k1win.sensorChooser;
@@ -36,9 +38,9 @@ namespace Kinect1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             disableButton();
-            myMediaElement.StartStoryKinect(0, setButtonsBackground);
+            myMediaElement.StartStoryKinect(SelectedStory, setButtonsBackground);
             //myMediaElement.StartStoryArduino(1, setButtonsBackground);//StroryID==1
-            myMediaElement.foo();
+            //myMediaElement.foo();
         }
 
         private void setButtonsBackground(String btn0URL)
