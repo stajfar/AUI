@@ -23,7 +23,7 @@ namespace KinectControls
 
         private void Play(XmlHelper.Time time, double duration)
         {
-
+             
             //Player1.Close();
             //Player1.Source = uri;
             this.Play();
@@ -60,6 +60,8 @@ namespace KinectControls
             this.storyID = storyID;
             this.Position = Util.timeSpan(time);
             double duration = listStory[storyID].duration;
+
+            this.Source = new Uri(listStory[storyID].vidUrl);
             this.Play(time, duration);
 
             Util.Runner.Start(duration, () => after.Invoke());

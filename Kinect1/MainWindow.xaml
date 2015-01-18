@@ -23,7 +23,7 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1" >
-            <ctrl:StoryController Stretch="Fill" x:Name="myMediaElement" LoadedBehavior="Manual" Source="..\..\..\..\pocoyo1.mp4"  />
+            <ctrl:StoryController Stretch="Fill" x:Name="myMediaElement" LoadedBehavior="Manual"  />
             <Image x:Name="vid"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="48"/>
             <Grid>
                 <Grid.ColumnDefinitions>
