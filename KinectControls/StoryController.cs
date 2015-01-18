@@ -47,7 +47,7 @@ namespace KinectControls
                     StartStory(storyID, () => Util.arduinoColor(Chosen, choise));
                     break;
                 case "KinectGesture":
-                    StartStory(storyID, () => { imw.GuestureRec(null, null); });
+                    StartStory(storyID, () => { });
                     break;
             }
         }

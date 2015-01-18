@@ -56,7 +56,8 @@ namespace Kinect1
         /// Finalizes an instance of the MainWindow class.
         /// This destructor will run only if the Dispose method does not get called.
         /// </summary>
-        ~kinect1Window() {
+        ~kinect1Window()
+        {
             this.Dispose(false);
         }
         /// <summary>
@@ -73,7 +74,7 @@ namespace Kinect1
         /// Frees all memory associated with the FusionImageFrame.
         /// </summary>
         /// <param name="disposing">Whether the function was called from Dispose.</param>
-        public  virtual void Dispose(bool disposing)
+        public virtual void Dispose(bool disposing)
         {
             if (!this.disposed)
             {
@@ -138,8 +139,6 @@ namespace Kinect1
 
                     // Add an event handler to be called whenever there is new depth frame data
                     args.NewSensor.AllFramesReady += this.sensor_AllFramesReady;
-                    //Add an event handler to be called whenever the guesture is recognized
-                    _gesture.GestureRecognized += Gesture_GestureRecognized;
 
                 }
                 catch (InvalidOperationException)
@@ -150,8 +149,6 @@ namespace Kinect1
             }
         }
 
-
-        public bool Activated = false;
         public void sensor_AllFramesReady(object sender, AllFramesReadyEventArgs e)
         {
             Skeleton me = null;
@@ -169,12 +166,7 @@ namespace Kinect1
             GetCameraPoint(e, ref me);
             this.ChooseSkeleton();
 
-            //Update gesture
-            
-            if (Activated)
-            {
-                _gesture.Update(me);
-            }
+            _gesture.Update(me);
         }
 
         public void Getskeleton(AllFramesReadyEventArgs e, ref Skeleton me)
@@ -290,16 +282,7 @@ namespace Kinect1
             }
         }
 
-
-
-         WaveGesture _gesture = new WaveGesture();
-
-
-         public System.EventHandler Gesture_GestureRecognized;
-        
-
-
-
+        public WaveGesture _gesture = new WaveGesture();
 
 
     }
