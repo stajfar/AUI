@@ -13,15 +13,15 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Button  Grid.Column="0"   Margin="10,190,205,10" Click="Button_Click_DoorStory" >
+            <Button Name="btn0"  Grid.Column="0"   Margin="10,190,205,10" Click="Button_Click_DoorStory" >
                 <Image Stretch="Fill" Source="images/cake.jpg" />            
             </Button>
 
-            <Button  Grid.Column="1"   Margin="114,190,101,10" Click="Button_Click_DoorStory" >
+            <Button  Name="btn1" Grid.Column="1"   Margin="114,190,101,10" Click="Button_Click_DoorStory" >
                 <Image Stretch="Fill" Source="images/order_apple.jpg" />
             </Button>
 
-            <Button  Grid.Column="2"   Margin="210,190,5,10" Click="Button_Click_DoorStory" >
+            <Button Name="btn2"  Grid.Column="2"   Margin="210,190,5,10" Click="Button_Click_DoorStory" >
                 <Image Stretch="Fill" Source="images/door_story.jpg" />
             </Button>
         </Grid>

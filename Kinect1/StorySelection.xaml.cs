@@ -26,10 +26,43 @@ namespace Kinect1
 
         private void Button_Click_DoorStory(object sender, RoutedEventArgs e)
         {
-
-            MainWindow win = new MainWindow(0);
-            win.Show();
-            this.Close();
+            Button btn = (Button)sender;
+            MainWindow win;
+            switch (btn.Name)
+            {
+                case "btn0":
+                     win = new MainWindow(0);
+                     win.Show();
+                     this.Close();
+                    break;
+                case "btn1":
+                    win = new MainWindow(1);
+                     win.Show();
+                     this.Close();
+                    break;
+                case "btn2":
+                    win = new MainWindow(2);
+                     win.Show();
+                     this.Close();
+                    break;
+                case "btn3":
+                    win = new MainWindow(3);
+                     win.Show();
+                     this.Close();
+                    break;
+                case "btn4":
+                    win = new MainWindow(4);
+                     win.Show();
+                     this.Close();
+                    break;
+                case "btn5":
+                    win = new MainWindow(5);
+                     win.Show();
+                     this.Close();
+                    break;
+            }
+            
+           
             
             
         }
