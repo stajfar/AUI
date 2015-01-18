@@ -61,7 +61,7 @@ namespace KinectControls
             this.Position = Util.timeSpan(time);
             double duration = listStory[storyID].duration;
 
-            this.Source = new Uri(listStory[storyID].vidUrl);
+            this.Source = new Uri(listStory[storyID].vidUrl, UriKind.Relative);
             this.Play(time, duration);
 
             Util.Runner.Start(duration, () => after.Invoke());

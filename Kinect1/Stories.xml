@@ -301,7 +301,7 @@
   </story>
   <story>
     <ID>1</ID>
-    <VideoUrl>../../../../pocoyo1.mp4</VideoUrl>
+    <VideoUrl>..\..\..\..\pocoyo1.mp4</VideoUrl>
     <Time>
       <Min>3</Min>
       <Sec>56</Sec>
@@ -556,7 +556,7 @@
   </story>
   <story>
     <ID>2</ID>
-    <VideoUrl>../../../../pocoDoor.mp4</VideoUrl>
+    <VideoUrl>..\..\..\..\pocoDoor.mp4</VideoUrl>
     <Time>
       <Min>0</Min>
       <Sec>0</Sec>
