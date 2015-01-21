@@ -16,6 +16,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Diagnostics;
+using KinectControls;
+using System.Threading;
 
 namespace Kinect1
 {
@@ -24,6 +27,12 @@ namespace Kinect1
         public MainWindow mWindow;
         public kinect1Window(MainWindow mWindow)
         {
+            Util.setPCSpeaker();
+            Util.speak("ciao ciao ciao ciao ciao ciao ciao ciao");
+            Thread.Sleep(2000);
+            Util.setBTSpeaker();
+            Util.speak("miao miao miao miao miao miao miao miao");
+
             this.mWindow = mWindow;
             this.sensorChooser = new KinectSensorChooser();
             this.sensorChooser.KinectChanged += this.SensorChooserOnKinectChanged;

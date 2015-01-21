@@ -6,11 +6,26 @@ using System.Threading;
 using System.Windows.Threading;
 using Microsoft.Speech.Synthesis;
 using Arduino1;
+using System.Diagnostics;
 
 namespace KinectControls
 {
     public class Util
     {
+        public static void setPCSpeaker()
+        {
+            Process notePad = new Process();
+            notePad.StartInfo.FileName = "..\\..\\..\\..\\changeAudio.exe";
+            notePad.StartInfo.Arguments = "0";
+            notePad.Start();
+        }
+        public static void setBTSpeaker()
+        {
+            Process notePad = new Process();
+            notePad.StartInfo.FileName = "..\\..\\..\\..\\changeAudio.exe";
+            notePad.StartInfo.Arguments = "3";
+            notePad.Start();
+        }
         public static void speak(XmlHelper.Speech speech, XmlHelper.Time beginTime)
         {
             XmlHelper.Time time = speech.time[0];
@@ -44,7 +59,7 @@ namespace KinectControls
             {
                 XmlHelper.Time startFanTime = fan.time[0];
                 Boolean fanStatus = fan.onStatus;
-                Util.Runner.Start(Util.timeSpanDiff(startFanTime, beginTime), () => Util.arduinoFan(fanStatus));
+                Util.Runner.Start(Util.timeSpanDiff(startFanTime, beginTime), () => Util.arduinoFanBody(fanStatus));
             }
 
             List<XmlHelper.Led> listLed = arduinoActions.listLed;
@@ -54,7 +69,7 @@ namespace KinectControls
                 Int32 red = led.red;
                 Int32 green = led.green;
                 Int32 blue = led.blue;
-                Util.Runner.Start(Util.timeSpanDiff(startLedTime, beginTime), () => Util.arduinoLed(red, green, blue));
+                Util.Runner.Start(Util.timeSpanDiff(startLedTime, beginTime), () => Util.arduinoLedLFace(red, green, blue));
             }
         }
 
@@ -65,12 +80,12 @@ namespace KinectControls
             double blue = 0;
             double clear = 0;
             Boolean statusOk = false;
-            //Util.arduinoColor(ref red, ref green, ref blue, ref clear);
+            Util.arduinoColor(ref red, ref green, ref blue, ref clear);
             List<XmlHelper.KinectButton> listKinectButton = choice.listKinectButton;
             foreach (XmlHelper.KinectButton kinectButton in listKinectButton)
             {
-               // if (clear > 75 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
-                if(true)
+               if (clear > 75 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
+                ///////if(true)
                 {
                     kinectButton.btnID = 1;
                     Chosen(kinectButton.btnID, () => { statusOk = true; });
@@ -86,6 +101,10 @@ namespace KinectControls
         {
             ArduinoSerialComm.initializeConn();
             Console.WriteLine(ArduinoSerialComm.portFound);
+            if (!ArduinoSerialComm.portFound)
+            {
+                return;
+            }
             double r = 0;
             double g = 0;
             double b = 0;
@@ -101,24 +120,72 @@ namespace KinectControls
             blue = b / (r + g + b) * 100;
         }
 
-        public static void arduinoLed(Int32 red, Int32 green, Int32 blue)
+        public static void arduinoLedLFace(Int32 red, Int32 green, Int32 blue)
         {
             ArduinoSerialComm.initializeConn();
             Console.WriteLine(ArduinoSerialComm.portFound);
+            if (!ArduinoSerialComm.portFound)
+            {
+                return;
+            }
             ArduinoSerialComm.arduinoOut(3, red, green, blue);
         }
 
-        public static void arduinoFan(Boolean statusFan)
+        public static void arduinoLedRFace(Int32 red, Int32 green, Int32 blue)
         {
             ArduinoSerialComm.initializeConn();
             Console.WriteLine(ArduinoSerialComm.portFound);
+            if (!ArduinoSerialComm.portFound)
+            {
+                return;
+            }
+            ArduinoSerialComm.arduinoOut(4, red, green, blue);
+        }
+
+        public static void arduinoLedBody(Int32 red, Int32 green, Int32 blue)
+        {
+            ArduinoSerialComm.initializeConn();
+            Console.WriteLine(ArduinoSerialComm.portFound);
+            if (!ArduinoSerialComm.portFound)
+            {
+                return;
+            }
+            ArduinoSerialComm.arduinoOut(5, red, green, blue);
+        }
+
+        public static void arduinoFanMouth(Boolean statusFan)
+        {
+            ArduinoSerialComm.initializeConn();
+            Console.WriteLine(ArduinoSerialComm.portFound);
+            if (!ArduinoSerialComm.portFound)
+            {
+                return;
+            }
             if (statusFan)
             {
-                ArduinoSerialComm.arduinoOut(4, 0);
+                ArduinoSerialComm.arduinoOut(6, 0);
             }
             else
             {
-                ArduinoSerialComm.arduinoOut(4, 255);
+                ArduinoSerialComm.arduinoOut(6, 255);
+            }
+        }
+
+        public static void arduinoFanBody(Boolean statusFan)
+        {
+            ArduinoSerialComm.initializeConn();
+            Console.WriteLine(ArduinoSerialComm.portFound);
+            if (!ArduinoSerialComm.portFound)
+            {
+                return;
+            }
+            if (statusFan)
+            {
+                ArduinoSerialComm.arduinoOut(7, 0);
+            }
+            else
+            {
+                ArduinoSerialComm.arduinoOut(7, 255);
             }
         }
 

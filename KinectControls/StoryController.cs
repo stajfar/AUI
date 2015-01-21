@@ -69,7 +69,7 @@ namespace KinectControls
             timeEnable = true;
 
             Util.speak(listStory[storyID].choice[0].listSpeech[0], time);
-            //Util.arduinoActions(listStory[storyID].arduinoActions[0], time);
+            Util.arduinoActions(listStory[storyID].arduinoActions[0], time);
         }
 
         Boolean timeEnable, isEnableChoise;
@@ -98,10 +98,10 @@ namespace KinectControls
             this.Play(time, duration);
 
             Util.speak(listStory[storyID].choice[0].listKinectButton[p].listSpeech[0], time);
-           // Util.arduinoActions(listStory[storyID].choice[0].listKinectButton[p].arduinoActions[0], time);
+           Util.arduinoActions(listStory[storyID].choice[0].listKinectButton[p].arduinoActions[0], time);
             if (rightChoice)
             {
-                //Util.Runner.Start(duration + 5, after);
+                Util.Runner.Start(duration + 5, after);
             }
         }
 
