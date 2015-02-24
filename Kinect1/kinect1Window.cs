@@ -28,10 +28,10 @@ namespace Kinect1
         public kinect1Window(MainWindow mWindow)
         {
             Util.setPCSpeaker();
-            Util.speak("ciao ciao ciao ciao ciao ciao ciao ciao");
-            Thread.Sleep(2000);
+            Util.speak("bau bau");
             Util.setBTSpeaker();
-            Util.speak("miao miao miao miao miao miao miao miao");
+            Util.speak("miao miao");
+            Util.setPCSpeaker();
 
             this.mWindow = mWindow;
             this.sensorChooser = new KinectSensorChooser();

@@ -16,14 +16,14 @@ namespace KinectControls
         {
             Process notePad = new Process();
             notePad.StartInfo.FileName = "..\\..\\..\\..\\changeAudio.exe";
-            notePad.StartInfo.Arguments = "0";
+            notePad.StartInfo.Arguments = "1";
             notePad.Start();
         }
         public static void setBTSpeaker()
         {
             Process notePad = new Process();
             notePad.StartInfo.FileName = "..\\..\\..\\..\\changeAudio.exe";
-            notePad.StartInfo.Arguments = "3";
+            notePad.StartInfo.Arguments = "0";
             notePad.Start();
         }
         public static void speak(XmlHelper.Speech speech, XmlHelper.Time beginTime)
@@ -70,6 +70,7 @@ namespace KinectControls
                 Int32 green = led.green;
                 Int32 blue = led.blue;
                 Util.Runner.Start(Util.timeSpanDiff(startLedTime, beginTime), () => Util.arduinoLedLFace(red, green, blue));
+                Util.Runner.Start(Util.timeSpanDiff(startLedTime, beginTime), () => Util.arduinoLedRFace(red, green, blue));
             }
         }
 
@@ -82,18 +83,25 @@ namespace KinectControls
             Boolean statusOk = false;
             Util.arduinoColor(ref red, ref green, ref blue, ref clear);
             List<XmlHelper.KinectButton> listKinectButton = choice.listKinectButton;
-            foreach (XmlHelper.KinectButton kinectButton in listKinectButton)
+            Console.WriteLine("color: ");
+            Console.WriteLine(clear);
+            Console.WriteLine(red);
+            Console.WriteLine(green);
+            Console.WriteLine(blue);
+            for (int i = 0; i < listKinectButton.Count; i++)
             {
-               if (clear > 75 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
+               XmlHelper.KinectButton kinectButton = listKinectButton[i];
+               if (clear > 0 && red > kinectButton.listColor[0].red && green > kinectButton.listColor[0].green && blue > kinectButton.listColor[0].blue)
                 ///////if(true)
                 {
-                    kinectButton.btnID = 1;
+                    kinectButton.btnID = i;
                     Chosen(kinectButton.btnID, () => { statusOk = true; });
                 }
             }
             if ( statusOk == false )
             {
                 Util.Runner.Start(0.1, () => arduinoColor(Chosen, choice));
+
             }
         }
 
@@ -153,7 +161,7 @@ namespace KinectControls
             ArduinoSerialComm.arduinoOut(5, red, green, blue);
         }
 
-        public static void arduinoFanMouth(Boolean statusFan)
+        public static void arduinoFanBody(Boolean statusFan)
         {
             ArduinoSerialComm.initializeConn();
             Console.WriteLine(ArduinoSerialComm.portFound);
@@ -168,24 +176,6 @@ namespace KinectControls
             else
             {
                 ArduinoSerialComm.arduinoOut(6, 255);
-            }
-        }
-
-        public static void arduinoFanBody(Boolean statusFan)
-        {
-            ArduinoSerialComm.initializeConn();
-            Console.WriteLine(ArduinoSerialComm.portFound);
-            if (!ArduinoSerialComm.portFound)
-            {
-                return;
-            }
-            if (statusFan)
-            {
-                ArduinoSerialComm.arduinoOut(7, 0);
-            }
-            else
-            {
-                ArduinoSerialComm.arduinoOut(7, 255);
             }
         }
 

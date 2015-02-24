@@ -6,6 +6,8 @@
         xmlns:k1="clr-namespace:Kinect1;assembly=Kinect1"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Kinect1.MainWindow"
         Loaded="Window_Loaded"
+        WindowStyle="None"
+        WindowState="Maximized"
         Title="Pocoyo">
 
 

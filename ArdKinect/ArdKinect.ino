@@ -10,9 +10,9 @@ Adafruit_NeoPixel pixRFace = Adafruit_NeoPixel(1, LEDRFACE, NEO_GRB + NEO_KHZ800
 
 #define LEDBODY        5
 
-Adafruit_NeoPixel pixBody = Adafruit_NeoPixel(9, LEDBODY, NEO_GRB + NEO_KHZ800);
+#define NUMPIXELS      9
 
-#define FANMOUTH       6
+Adafruit_NeoPixel pixBody = Adafruit_NeoPixel(NUMPIXELS, LEDBODY, NEO_GRB + NEO_KHZ800);
 
 #define FANWALL        7
 
@@ -38,8 +38,10 @@ byte inputByte_6;
 
 void setup() {
 
-  pixels.begin(); // This initializes the NeoPixel library.
-  pinMode(FANPIN, OUTPUT);
+  pixLFace.begin(); // This initializes the NeoPixel library.
+  pixRFace.begin(); // This initializes the NeoPixel library.
+  pixBody.begin(); // This initializes the NeoPixel library.
+  pinMode(FANWALL, OUTPUT);
   ColorSetup();
   Serial.begin(9600);
 }
@@ -78,24 +80,14 @@ void loop() {
               case LEDBODY: //5
                 ledBody(inputByte_3, inputByte_4, inputByte_5);
               break;
-              case FANMOUTH: //6
-                if(inputByte_5 == 255)
-                {
-                  digitalWrite(FANPIN, HIGH); 
-                }
-                else
-                {
-                  digitalWrite(FANPIN, LOW); 
-                }
-              break;
               case FANWALL: //7
                 if(inputByte_5 == 255)
                 {
-                  digitalWrite(FANPIN, HIGH); 
+                  digitalWrite(FANWALL, HIGH); 
                 }
                 else
                 {
-                  digitalWrite(FANPIN, LOW); 
+                  digitalWrite(FANWALL, LOW); 
                 }
               break;
             } 
@@ -126,24 +118,22 @@ void loop() {
 }
 
 void ledLFace(int red, int green, int blu) {
-    pixLFace.setPixelColor(0, pixels.Color(red, green, blu)); // Moderately bright green color.
+    pixLFace.setPixelColor(0, pixLFace.Color(red, green, blu)); // Moderately bright green color.
     pixLFace.show(); // This sends the updated pixel color to the hardware.
     delay(1); // Delay for a period of time (in milliseconds).
-  }
 }
 
 void ledRFace(int red, int green, int blu) {
-    pixRFace.setPixelColor(0, pixels.Color(red, green, blu)); // Moderately bright green color.
+    pixRFace.setPixelColor(0, pixRFace.Color(red, green, blu)); // Moderately bright green color.
     pixRFace.show(); // This sends the updated pixel color to the hardware.
     delay(1); // Delay for a period of time (in milliseconds).
-  }
 }
 
 void ledBody(int red, int green, int blu) {
   // For a set of NeoPixels the first NeoPixel is 0, second is 1, all the way up to the count of pixels minus one.
   for(int i=0;i<NUMPIXELS;i++){
     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixBody.setPixelColor(i, pixels.Color(red, green, blu)); // Moderately bright green color.
+    pixBody.setPixelColor(i, pixBody.Color(red, green, blu)); // Moderately bright green color.
     pixBody.show(); // This sends the updated pixel color to the hardware.
     delay(1); // Delay for a period of time (in milliseconds).
   }
