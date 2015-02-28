@@ -53,7 +53,7 @@ namespace Kinect1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             disableButton();
-            myMediaElement.StartStory(SelectedStory, this);
+            myMediaElement.StartStory(SelectedStory, this, myMediaElementTutorial);
             //myMediaElement.foo();
         }
 
@@ -95,6 +95,11 @@ namespace Kinect1
             {
                 disableButton();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

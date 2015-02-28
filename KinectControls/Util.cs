@@ -16,14 +16,18 @@ namespace KinectControls
         {
             Process notePad = new Process();
             notePad.StartInfo.FileName = "..\\..\\..\\..\\changeAudio.exe";
-            notePad.StartInfo.Arguments = "1";
+            notePad.StartInfo.Arguments = "0";
+            notePad.StartInfo.UseShellExecute = false;
+            notePad.StartInfo.CreateNoWindow = true;
             notePad.Start();
         }
         public static void setBTSpeaker()
         {
             Process notePad = new Process();
             notePad.StartInfo.FileName = "..\\..\\..\\..\\changeAudio.exe";
-            notePad.StartInfo.Arguments = "0";
+            notePad.StartInfo.Arguments = "1";
+            notePad.StartInfo.UseShellExecute = false;
+            notePad.StartInfo.CreateNoWindow = true;
             notePad.Start();
         }
         public static void speak(XmlHelper.Speech speech, XmlHelper.Time beginTime)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -15,6 +16,8 @@ namespace KinectControls
         private int storyID;
         private List<XmlHelper.Story> listStory;
         private IMainWindow imw;
+        private MediaElement myMediaElementTutorial;
+        Boolean tutorial = false;
 
         public StoryController()
         {
@@ -32,9 +35,15 @@ namespace KinectControls
             Util.Runner.Start(duration + 0.002, this.Pause);
         }
 
-        public void StartStory(int storyID, IMainWindow imw)
+        public void StartStory(int storyID, IMainWindow imw, MediaElement myMediaElementTutorial)
         {
+            if (storyID >= 3)
+            {
+                storyID -= 3;
+                tutorial = true;
+            }
             this.imw = imw;
+            this.myMediaElementTutorial = myMediaElementTutorial;
             XmlHelper.Choice choise = listStory[storyID].choice[0];
             switch (choise.type)
             {
@@ -63,6 +72,32 @@ namespace KinectControls
 
             this.Source = new Uri(listStory[storyID].vidUrl, UriKind.Relative);
             this.Play(time, duration);
+            if (tutorial)
+            {
+                Util.Runner.Start(duration, () =>
+                {
+                    Uri uri = new Uri("", UriKind.Relative);
+                    if (storyID == 0)
+                    {
+                        uri = new Uri("../../../../tutorial/pocoyoFirst.mp4", UriKind.Relative);
+                    }
+                    if (storyID == 1)
+                    {
+                        uri = new Uri("../../../../tutorial/toturialColorSensor.mp4", UriKind.Relative);
+                    }
+                    if (storyID == 2)
+                    {
+                        uri = new Uri("../../../../tutorial/pocoyoDoor.mp4", UriKind.Relative);
+                    }
+                    myMediaElementTutorial.Source = uri;
+                    myMediaElementTutorial.Play();
+                    myMediaElementTutorial.MediaEnded += new RoutedEventHandler((object o, RoutedEventArgs r) =>
+                    {
+                        myMediaElementTutorial.Position = TimeSpan.FromSeconds(0);
+                        myMediaElementTutorial.Play();
+                    });
+                });
+            }
 
             Util.Runner.Start(duration, () => after.Invoke());
             Util.Runner.Start(duration, () => isEnableChoise = true );

@@ -27,12 +27,12 @@ namespace Kinect1
         public MainWindow mWindow;
         public kinect1Window(MainWindow mWindow)
         {
-            Util.setPCSpeaker();
-            Util.speak("bau bau");
-            Util.setBTSpeaker();
-            Util.speak("miao miao");
-            Util.setPCSpeaker();
-
+            Util.Runner.Start(2, () => Util.setPCSpeaker());
+            Util.Runner.Start(4, () => Util.speak("bau bau"));
+            Util.Runner.Start(6, () => Util.setBTSpeaker());
+            Util.Runner.Start(8, () => Util.speak("miao miao miao miao miao miao miao miao miao miao"));
+            Util.Runner.Start(10, () => Util.setPCSpeaker());
+            
             this.mWindow = mWindow;
             this.sensorChooser = new KinectSensorChooser();
             this.sensorChooser.KinectChanged += this.SensorChooserOnKinectChanged;

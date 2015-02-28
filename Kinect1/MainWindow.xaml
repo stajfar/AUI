@@ -8,7 +8,7 @@
         Loaded="Window_Loaded"
         WindowStyle="None"
         WindowState="Maximized"
-        Title="Pocoyo">
+        Title="Pocoyo" Closing="Window_Closing">
 
 
     <Grid  Background="White" VerticalAlignment="Top"  Margin="0 0 0 0">
@@ -22,11 +22,12 @@
         <Grid Grid.Row="0" >
             <k:KinectSensorChooserUI  Grid.Row="0" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" Name="sensorChooserUi" />
 
+
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1" >
             <ctrl:StoryController Stretch="Fill" x:Name="myMediaElement" LoadedBehavior="Manual"  />
-            <Image x:Name="vid"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="48"/>
+            <Image x:Name="vid"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200 100 0 0" Width="64" Height="48"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
@@ -50,8 +51,9 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Image Name ="maskedColor" Stretch="Fill" />
+                <Image Name ="maskedColor" Stretch="Fill" Margin="0,0,354,50" />
             </Grid>
+            <MediaElement x:Name="myMediaElementTutorial" LoadedBehavior="Manual" VerticalAlignment="Top" HorizontalAlignment="Left" Height="190" Width="300" Margin="10,-52,0,0" />
         </Grid>
     </Grid>
 </Window>
