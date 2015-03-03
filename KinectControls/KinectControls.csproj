@@ -103,6 +103,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -113,9 +114,9 @@
     <Resource Include="Images\Hand.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Arduino1\Arduino1.csproj">
+    <ProjectReference Include="..\Arduino1\ArduinoController.csproj">
       <Project>{9346f47a-d258-499b-81cb-100a8c424540}</Project>
-      <Name>Arduino1</Name>
+      <Name>ArduinoController</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
