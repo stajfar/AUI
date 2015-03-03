@@ -76,7 +76,7 @@
           <Min>2</Min>
           <Sec>49</Sec>
         </Time>
-        <Text>Help Pato to find the, oven.</Text>
+        <Text>Help me to find the, oven.</Text>
       </Speech>
       <KinectButton>
         <KinecButtonID>0</KinecButtonID>
@@ -316,7 +316,7 @@
           <Min>4</Min>
           <Sec>7</Sec>
         </Time>
-        <Text>Help Pato to find the, green apple.</Text>
+        <Text>Help me to find the, green apple.</Text>
       </Speech>
       <KinectButton>
         <KinecButtonID>0</KinecButtonID>
@@ -393,7 +393,7 @@
             <Min>4</Min>
             <Sec>7</Sec>
           </Time>
-          <Text>This is the red apple. Help Pato to find the, green apple.</Text>
+          <Text>This is the red apple. I want the green apple.</Text>
         </Speech>
       </KinectButton>
       <KinectButton>
@@ -549,7 +549,7 @@
             <Min>4</Min>
             <Sec>7</Sec>
           </Time>
-          <Text>This is the blue apple. Help Pato to find the, green apple.</Text>
+          <Text>This is the blue apple. I want the green apple.</Text>
         </Speech>
       </KinectButton>
     </Choice>
@@ -572,7 +572,7 @@
           <Min>0</Min>
           <Sec>35</Sec>
         </Time>
-        <Text>Help Pocoyo to open the, door.</Text>
+        <Text>Help me to open the, door.</Text>
       </Speech>
       <KinectButton>
         <KinecButtonID>0</KinecButtonID>
@@ -593,18 +593,18 @@
           </Fan>
           <Fan>
             <Time>
-              <Min>0</Min>
-              <Sec>54</Sec>
+              <Min>1</Min>
+              <Sec>04</Sec>
             </Time>
             <ON>False</ON>
           </Fan>
         </ArduinoActions>
         <Speech>
           <Time>
-            <Min>0</Min>
-            <Sec>53</Sec>
+            <Min>1</Min>
+            <Sec>02</Sec>
           </Time>
-          <Text>Thank you for oppening the, door</Text>
+          <Text>wooo, wooo, wooo</Text>
         </Speech>
       </KinectButton>
     </Choice>

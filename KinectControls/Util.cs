@@ -34,7 +34,9 @@ namespace KinectControls
         {
             XmlHelper.Time time = speech.time[0];
             String text = speech.text;
-            Util.Runner.Start(Util.timeSpanDiff(time, beginTime), () => Util.speak(text));
+            Util.Runner.Start(Util.timeSpanDiff(time.min, time.sec + 0.0, beginTime.min, beginTime.sec), () => Util.setBTSpeaker());
+            Util.Runner.Start(Util.timeSpanDiff(time.min, time.sec + 0.1, beginTime.min, beginTime.sec), () => Util.speak(text));
+            Util.Runner.Start(Util.timeSpanDiff(time.min, time.sec + 0.2, beginTime.min, beginTime.sec), () => Util.setPCSpeaker());
         }
 
 
@@ -45,13 +47,14 @@ namespace KinectControls
             // Configure the audio output.
             synth.SetOutputToWaveFile(@"C:\test\Rate.wav");
             synth.SelectVoice("Microsoft Server Speech Text to Speech Voice (en-US, Helen)");
-            synth.Rate = 0;
+            synth.Rate = -1;
             synth.Volume = 100;
             PromptBuilder prbuilder = new PromptBuilder();
             // Create a SoundPlayer instance to play the output audio file.
             System.Media.SoundPlayer m_SoundPlayer =
               new System.Media.SoundPlayer(@"C:\test\Rate.wav");
             synth.Speak(text);
+            Thread.Sleep(1000);
             m_SoundPlayer.Play();
             synth.Dispose();
         }

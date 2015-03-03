@@ -37,6 +37,7 @@ namespace KinectControls
 
         public void StartStory(int storyID, IMainWindow imw, MediaElement myMediaElementTutorial)
         {
+            Util.setPCSpeaker();
             if (storyID >= 3)
             {
                 storyID -= 3;
@@ -133,10 +134,12 @@ namespace KinectControls
             this.Play(time, duration);
 
             Util.speak(listStory[storyID].choice[0].listKinectButton[p].listSpeech[0], time);
-           Util.arduinoActions(listStory[storyID].choice[0].listKinectButton[p].arduinoActions[0], time);
+            Util.arduinoActions(listStory[storyID].choice[0].listKinectButton[p].arduinoActions[0], time);
             if (rightChoice)
             {
                 Util.Runner.Start(duration + 5, after);
+                myMediaElementTutorial.Stop();
+                myMediaElementTutorial.Opacity = 0;
             }
         }
 
